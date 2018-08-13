@@ -1,0 +1,49 @@
+/* app css stylesheet */
+body {
+  font-family: Roboto;
+}
+
+.main {
+   /* Same as the width of the sidenav */
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav1 {padding-top: 15px;}
+  .sidenav1 a {font-size: 18px;}
+}
+
+.md-toolbar-tools{
+
+
+}
+
+.post {
+
+  width: 1000px;
+  height: 300px;
+}
+
+.md-sidenav-left{
+  width: 590px;
+  margin-left: 10px;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.conOpt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/*
+Copyright 2018 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that can be foundin the LICENSE file at http://material.angularjs.org/HEAD/license.
+*/
