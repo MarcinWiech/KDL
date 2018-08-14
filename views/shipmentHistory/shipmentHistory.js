@@ -1,10 +1,10 @@
 'use strict';
 
-angular.module('myApp.newShipment', ['ngRoute'])
+angular.module('myApp.shipmentHistory', ['ngRoute'])
 
     .config(['$routeProvider', function($routeProvider) {
-        $routeProvider.when('/newShipment', {
-            templateUrl: 'views/newShipment/newShipment.html',
+        $routeProvider.when('/shipmentHistory', {
+            templateUrl: 'views/shipmentHistory/shipmentHistory.html',
             controller: 'View1Ctrl'
         });
     }])

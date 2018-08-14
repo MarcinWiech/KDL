@@ -12,4 +12,3 @@ angular.module('myApp.newConsignment', ['ngRoute'])
     .controller('View1Ctrl', [function() {
 
     }]);
-height: fit-content;

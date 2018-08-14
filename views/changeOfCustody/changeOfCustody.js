@@ -1,10 +1,10 @@
 'use strict';
 
-angular.module('myApp.newShipment', ['ngRoute'])
+angular.module('myApp.changeOfCustody', ['ngRoute'])
 
     .config(['$routeProvider', function($routeProvider) {
-        $routeProvider.when('/newShipment', {
-            templateUrl: 'views/newShipment/newShipment.html',
+        $routeProvider.when('/changeOfCustody', {
+            templateUrl: 'views/changeOfCustody/changeOfCustody.html',
             controller: 'View1Ctrl'
         });
     }])
@@ -12,4 +12,3 @@ angular.module('myApp.newShipment', ['ngRoute'])
     .controller('View1Ctrl', [function() {
 
     }]);
-

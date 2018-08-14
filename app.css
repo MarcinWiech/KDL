@@ -18,9 +18,8 @@ body {
 }
 
 .post {
-
-  width: 1000px;
-  height: 300px;
+  width: 800px;
+  height: 200px;
 }
 
 .md-sidenav-left{
@@ -38,6 +37,29 @@ img {
 
 
 .conOpt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.post p {
+  font-size: small;
+}
+
+.md-raised {
+  font-size: small;
+
+}
+
+h3 {
+  font-size: medium;
+}
+
+.cell {
+  margin: auto;
+}
+
+.centreButton {
   display: flex;
   align-items: center;
   justify-content: center;

@@ -13,6 +13,8 @@ var myApp = angular.module('MyApp', [
     'myApp.templates',
     'myApp.finishedShipments',
     'myApp.manageOfferedShipments',
+    'myApp.changeOfCustody',
+    'myApp.shipmentHistory'
 ]);
 
     myApp.controller('BasicDemoCtrl', function($scope) {
@@ -65,6 +67,12 @@ var myApp = angular.module('MyApp', [
             })
             .when('/views/manageOfferedShipments/manageOfferedShipments', {
                 templateUrl: '/manageOfferedShipments.html',
+            })
+            .when('/views/changeOfCustody/changeOfCustody', {
+                templateUrl: '/changeOfCustody.html',
+            })
+            .when('/views/shipmentHistory/shipmentHistory', {
+                templateUrl: '/shipmentHistory.html',
             })
             .otherwise({
             redirectTo: '/home'
