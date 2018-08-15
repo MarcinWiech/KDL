@@ -1,95 +1,39 @@
 <link rel="stylesheet" href="views/myShipments/myShipments.css">
+<div>
+    <h1>My shipments</h1>
 
-<h1>My shipments</h1>
+    <div layout="row" layout-padding="" layout-wrap="" layout-margin="" ng-cloak="" layout-align="space-around">
 
-<div layout="row" layout-padding="" layout-wrap="" layout-margin="" ng-cloak="" layout-align="space-around">
+        <!-- Consignment divs !-->
+        <div class="post" md-whiteframe="{{ctrl.elevation}}"  layout="row" layout-align="center">
 
-    <!-- Consignment divs !-->
-    <div class="post" md-whiteframe="{{ctrl.elevation}}"  layout="row" layout-align="center">
+            <div flex="40" layout="center center">
+                <img src="https://ptremovals.co.uk/wp-content/uploads/2016/02/short-packing-box.png"/>
+            </div>
 
-        <div flex="40" layout="center center">
-            <img src="https://ptremovals.co.uk/wp-content/uploads/2016/02/short-packing-box.png"/>
-        </div>
+            <div flex="30" layout="column">
+                <div class="conOpt" flex="25">
+                    <p>Custody Status: pending</p>
+                </div>
+            </div>
 
-        <div flex="30" layout="column">
-            <div class="conOpt" flex="25">
-                <p>Custody Status: pending</p>
+            <div flex="30" layout="column">
+
+                <div class="conOpt" flex="25">
+                    <p>Shipment ID: 1341y3fnSKfjal</p>
+                </div>
+                <div class="conOpt" flex="25">
+                    <md-button class="md-raised" ng-href="#!/map">Visualise the route</md-button>
+                </div>
+                <div class="conOpt" flex="25">
+                    <md-button class="md-raised" style="background-color: grey">Add/Update the picture</md-button>
+                </div>
+                <div class="conOpt" flex="25">
+                    <md-button class="md-raised" flex style="display: flex; justify-content: center;" ng-href="#!/shipmentHistory">More</md-button>
+                </div>
             </div>
         </div>
 
-        <div flex="30" layout="column">
 
-            <div class="conOpt" flex="25">
-                <p>Shipment ID: 1341y3fnSKfjal</p>
-            </div>
-            <div class="conOpt" flex="25">
-                <md-button class="md-raised">Visualise the route</md-button>
-            </div>
-            <div class="conOpt" flex="25">
-                <md-button class="md-raised">Add/Update the picture</md-button>
-            </div>
-            <div class="conOpt" flex="25">
-                <md-button class="md-raised" flex style="display: flex; justify-content: center;" ng-href="#!/shipmentHistory">More</md-button>
-            </div>
-        </div>
     </div>
-
-    <div class="post" md-whiteframe="{{ctrl.elevation}}"  layout="row" layout-align="center">
-
-        <div flex="40" layout="center center">
-            <img src="https://ptremovals.co.uk/wp-content/uploads/2016/02/short-packing-box.png"/>
-        </div>
-
-        <div flex="30" layout="column">
-            <div class="conOpt" flex="25">
-                <p>Custody Status: pending</p>
-            </div>
-        </div>
-
-        <div flex="30" layout="column">
-
-            <div class="conOpt" flex="25">
-                <p>Shipment ID: 1341y3fnSKfjal</p>
-            </div>
-            <div class="conOpt" flex="25">
-                <md-button class="md-raised">Visualise the route</md-button>
-            </div>
-            <div class="conOpt" flex="25">
-                <md-button class="md-raised">Add/Update the picture</md-button>
-            </div>
-            <div class="conOpt" flex="25">
-                <md-button class="md-raised" style="display: flex; justify-content: center;" ng-href="#!/shipmentHistory">More</md-button>
-            </div>
-        </div>
-    </div>
-
-    <div class="post" md-whiteframe="{{ctrl.elevation}}"  layout="row" layout-align="center">
-
-        <div flex="40" layout="center center">
-            <img src="https://ptremovals.co.uk/wp-content/uploads/2016/02/short-packing-box.png"/>
-        </div>
-
-        <div flex="30" layout="column">
-            <div class="conOpt" flex="25">
-                <p>Custody Status: pending</p>
-            </div>
-        </div>
-
-        <div flex="30" layout="column">
-
-            <div class="conOpt" flex="25">
-                <p>Shipment ID: 1341y3fnSKfjal</p>
-            </div>
-            <div class="conOpt" flex="25">
-                <md-button class="md-raised">Visualise the route</md-button>
-            </div>
-            <div class="conOpt" flex="25">
-                <md-button class="md-raised">Add/Update the picture</md-button>
-            </div>
-            <div class="conOpt" flex="25">
-                <md-button class="md-raised" style="display: flex; justify-content: center;" ng-href="#!/shipmentHistory">More</md-button>
-            </div>
-        </div>
-    </div>
-
 </div>

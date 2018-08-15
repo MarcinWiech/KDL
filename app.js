@@ -14,7 +14,11 @@ var myApp = angular.module('MyApp', [
     'myApp.finishedShipments',
     'myApp.manageOfferedShipments',
     'myApp.changeOfCustody',
-    'myApp.shipmentHistory'
+    'myApp.shipmentHistory',
+    'myApp.companyScans',
+    'myApp.map',
+    'myApp.employeesInvolved',
+    'myApp.consignmentScans'
 ]);
 
     myApp.controller('BasicDemoCtrl', function($scope) {
@@ -74,8 +78,19 @@ var myApp = angular.module('MyApp', [
             .when('/views/shipmentHistory/shipmentHistory', {
                 templateUrl: '/shipmentHistory.html',
             })
+            .when('/views/scans/companyScans/companyScans', {
+                templateUrl: '/companyScans.html',
+            })
+            .when('/views/map/map', {
+                templateUrl: '/map.html',
+            })
+            .when('/views/employeesInvolved/employeesInvolved', {
+                templateUrl: '/employeesInvolved.html',
+            })
+            .when('/views/scans/consignmentScans', {
+                templateUrl: '/consignmentScans.html',
+            })
             .otherwise({
             redirectTo: '/home'
         });
     }]);
-

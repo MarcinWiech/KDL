@@ -5,7 +5,7 @@
 </div>
 
 
-<div layout="row" layout-padding="" layout-wrap="" layout-margin="" ng-cloak="" layout-align="space-around" style="margin: auto">
+<div layout="row" layout-padding="" layout-wrap="" layout-margin="" ng-cloak="" layout-align="space-around" style="margin: auto" ng-app="myApp.newConsignment" ng-controller="newConsignmentController">
 
         <!-- Consignment divs !-->
 
@@ -67,14 +67,96 @@
 
         <div flex="80" layout="row" style="display: flex;padding-top: 20px; float: left;">
             <div class="centreButton" flex="auto">
-                <md-button class="md-raised">Add new product</md-button>
+                <md-button class="md-raised" style="background-color: grey">Add new product</md-button>
             </div>
             <div class="centreButton" flex="auto">
-                <md-button class="md-raised">Add photo</md-button>
+                <md-button class="md-raised" style="background-color: grey">Add photo</md-button>
             </div>
         </div>
         <div flex="20" layout="row" style="display: flex;padding-top: 20px;float:right;">
-            <md-button class="md-raised">Finish</md-button>
+            <md-button class="md-raised" style="background-color: grey">Finish</md-button>
+        </div>
+    </div>
+
+    <div class="post" md-whiteframe="{{ctrl.elevation}}" style="padding-left: 20px;">
+        <div flex="100"  style="text-align: center; vertical-align: middle;">
+            <h2><b>Consignment</b></h2>
+        </div>
+
+        <div flex="100" layout="row">
+            <div flex="50">
+                <h3>ISO 8000-115</h3>
+            </div>
+            <div flex="25" style="text-align: center;">
+                <h3>Number of items</h3>
+            </div>
+            <div flex="15">
+                <h3>Serial numbers</h3>
+            </div>
+            <div flex="10" style="text-align: center;">
+                <h3>Delete</h3>
+            </div>
+        </div>
+
+        <div flex="100"layout="row">
+            <div flex="50" class="cell">
+                <form name="productForm" ng-submit="addProduct()">
+                    <input type="text" name="newProduct" ng-model="newProduct" required/>
+                    <input type="text" name="nOI" ng-model="nOI" required/>
+                    <button ng-disabled="productForm.$invalid" ng-click="addProduct()">Add</button>
+                </form>
+                <ul>
+                    <div ng-repeat="product in products">
+
+                        <span>{{product.ISO}}</span>
+                        <span>{{product.NoI}}</span>
+
+                    </div>
+                </ul>
+
+            </div>
+            <div flex="25"  class="cell" style="text-align: center;">
+                17
+            </div>
+            <div flex="15" class="centreButton">
+                <md-button class="md-mini">
+                    <md-icon md-svg-src="images/baseline-add-24px.svg"></md-icon>
+                </md-button>
+            </div>
+            <div flex="10" class="cell" style="text-align: center;">
+                <i class="fas fa-trash"></i>
+                <!-- <md-icon md-svg-src="/home/Perforce/Marcin_Marcin_7490/websites/koiosmasterdata_com/v1/images/icons/ic_delete_black_24px.svg"></md-icon> !-->
+            </div>
+        </div>
+
+        <div flex="100"layout="row">
+            <div flex="50" class="cell">
+                ...
+            </div>
+            <div flex="25"  class="cell" style="text-align: center;">
+                ...
+            </div>
+            <div flex="15" class="centreButton">
+                <md-button class="md-mini">
+                    <md-icon md-svg-src="images/baseline-add-24px.svg"></md-icon>
+                </md-button>
+            </div>
+            <div flex="10" class="cell" style="text-align: center;">
+                <i class="fas fa-trash"></i>
+                <!-- <md-icon md-svg-src="/home/Perforce/Marcin_Marcin_7490/websites/koiosmasterdata_com/v1/images/icons/ic_delete_black_24px.svg"></md-icon> !-->
+            </div>
+        </div>
+
+        <div flex="80" layout="row" style="display: flex;padding-top: 20px; float: left;">
+            <div class="centreButton" flex="auto">
+                <md-button class="md-raised" style="background-color: grey">Add new product</md-button>
+            </div>
+            <div class="centreButton" flex="auto">
+                <md-button class="md-raised" style="background-color: grey">Add photo</md-button>
+            </div>
+        </div>
+        <div flex="20" layout="row" style="display: flex;padding-top: 20px;float:right;">
+            <md-button class="md-raised" style="background-color: grey">Finish</md-button>
         </div>
     </div>
 
