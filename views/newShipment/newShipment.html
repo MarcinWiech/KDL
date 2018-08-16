@@ -1,6 +1,6 @@
-
 <link rel="stylesheet" href="views/newShipment/newShipment.css">
-<div>
+
+<div ng-app="myApp.newShipment" ng-controller="newShipmentCtrl">
     <div>
         <h1>New shipment</h1>
     </div>
@@ -10,9 +10,15 @@
 
         <!-- Consignment divs !-->
 
-        <div class="post" md-whiteframe="{{ctrl.elevation}}" style="padding-left: 20px;">
-            <div flex="100"  style="text-align: center; vertical-align: middle;">
-                <h2><b>Consignment</b></h2>
+        <div class="post" md-whiteframe="{{ctrl.elevation}}" style="padding-left: 20px;" ng-repeat="consignment in consignments">
+            <div layout="row">
+                <div flex="90"  style="text-align: center; vertical-align: middle;">
+                    <h2><b>{{consignment.name}}</b></h2>
+                </div>
+                <div flex="10" class="cell" style="text-align: center;" ng-click="deleteConsignment($index)">
+                    <i class="fas fa-trash"></i>
+                    <!-- <md-icon md-svg-src="/home/Perforce/Marcin_Marcin_7490/websites/koiosmasterdata_com/v1/images/icons/ic_delete_black_24px.svg"></md-icon> !-->
+                </div>
             </div>
 
             <div flex="100" layout="row">
@@ -46,22 +52,6 @@
                 </div>
             </div>
 
-            <div flex="100"layout="row">
-                <div flex="50" class="cell">
-                    ...
-                </div>
-                <div flex="25"  class="cell" style="text-align: center;">
-                    ...
-                </div>
-                <div flex="15" class="centreButton">
-                    <md-button class="md-raised" style="background-color: grey">Add S/N</md-button>
-                </div>
-                <div flex="10" class="cell" style="text-align: center;">
-                    <i class="fas fa-trash"></i>
-                    <!-- <md-icon md-svg-src="/home/Perforce/Marcin_Marcin_7490/websites/koiosmasterdata_com/v1/images/icons/ic_delete_black_24px.svg"></md-icon> !-->
-                </div>
-            </div>
-
             <div flex="80" layout="row" style="display: flex;padding-top: 20px; float: left;">
                 <div flex="auto">
                     <md-button class="md-raised" style="background-color: grey">Add new product</md-button>
@@ -75,9 +65,10 @@
 
     </div>
     <div style="float: right;" layout-margin="">
-        <md-button class="md-raised" style="background-color: grey">Add new consignment</md-button>
+        <md-button class="md-raised" style="background-color: grey" ng-click="addConsignment()">Add new consignment</md-button>
         <md-button class="md-raised" ng-href="#!/changeOfCustody">Next</md-button>
 
     </div>
 
 </div>
+
