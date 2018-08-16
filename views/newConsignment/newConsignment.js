@@ -9,7 +9,7 @@ angular.module('myApp.newConsignment', ['ngRoute'])
         });
     }])
 
-    .controller('newConsignmentCtrl', ['$scope', function($scope) {
+    .controller('newConsignmentCtrl', ['$scope', '$mdDialog', function($scope, $mdDialog) {
 
         $scope.products = [];
 
@@ -19,13 +19,9 @@ angular.module('myApp.newConsignment', ['ngRoute'])
             $scope.nOI = '';
         };
 
-        $scope.deleteProduct = function(index) {
-            $scope.products.splice(index, 1);
-        };
-
         $scope.showAdvanced = function(ev) {
             $mdDialog.show({
-                controller: newConsignmentCtrl,
+                controller: DialogController,
                 templateUrl: 'dialog1.tmpl.html',
                 parent: angular.element(document.body),
                 targetEvent: ev,
@@ -38,5 +34,19 @@ angular.module('myApp.newConsignment', ['ngRoute'])
                     $scope.status = 'You cancelled the dialog.';
                 });
         };
+
+        function DialogController($scope, $mdDialog) {
+            $scope.hide = function() {
+                $mdDialog.hide();
+            };
+
+            $scope.cancel = function() {
+                $mdDialog.cancel();
+            };
+
+            $scope.answer = function(answer) {
+                $mdDialog.hide(answer);
+            };
+        }
 
     }]);

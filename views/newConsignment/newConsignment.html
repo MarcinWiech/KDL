@@ -8,6 +8,43 @@
 <div layout="row" layout-padding="" layout-wrap="" layout-margin="" ng-cloak="" layout-align="space-around" style="margin: auto" ng-app="myApp.newConsignment" ng-controller="newConsignmentCtrl">
 
     <!-- Consignment divs !-->
+    <md-button class="md-primary md-raised" ng-click="showAdvanced($event)">
+        Add serial numbers
+    </md-button>
+
+
+    <script type="text/ng-template" id="dialog1.tmpl.html"><md-dialog aria-label="Mango (Fruit)">
+    <form ng-cloak>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Add serial numbers</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <h1>add table</h1>
+            </div>
+        </md-dialog-content>
+
+        <md-dialog-actions layout="row">
+            <span flex></span>
+            <md-button ng-click="answer('not useful')">
+                Cancel
+            </md-button>
+            <md-button ng-click="answer('useful')">
+                Save
+            </md-button>
+        </md-dialog-actions>
+    </form>
+    </md-dialog>
+    </script>
+
+
 
     <div class="post" md-whiteframe="{{ctrl.elevation}}" style="padding-left: 20px;">
         <div flex="100"  style="text-align: center; vertical-align: middle;">
