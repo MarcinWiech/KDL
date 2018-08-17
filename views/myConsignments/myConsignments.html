@@ -1,6 +1,16 @@
 
 <link rel="stylesheet" href="views/myConsignments/myConsignments.css">
 <div>
+    <div ng-app="myApp.newConsignment" ng-controller="newConsignmentCtrl">
+        <div ng-repeat="consignment in getConsignments">
+            <div>
+                {{consignment}}
+            </div>
+        </div>
+    </div>
+
+
+
     <div>
         <h1>My consignments</h1>
     </div>

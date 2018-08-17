@@ -5,7 +5,9 @@
 </div>
 
 
+
 <div layout="row" layout-padding="" layout-wrap="" layout-margin="" ng-cloak="" layout-align="space-around" style="margin: auto;" ng-app="myApp.newConsignment" ng-controller="newConsignmentCtrl">
+
 
     <!-- Consignment divs !-->
     <div class="post" md-whiteframe="{{ctrl.elevation}}" style="padding-left: 20px;">
@@ -98,7 +100,7 @@
             </div>
         </div>
         <div flex="20" layout="row" style="display: flex;padding-top: 20px;float:right;">
-            <md-button class="md-raised" style="background-color: grey">Finish</md-button>
+            <md-button class="md-raised" style="background-color: grey" ng-click="addConsignment()">Finish</md-button>
         </div>
     </div>
 </div>

@@ -9,7 +9,9 @@ angular.module('myApp.newConsignment', ['ngRoute'])
         });
     }])
 
-    .controller('newConsignmentCtrl', ['$scope', '$mdDialog', function($scope, $mdDialog) {
+    .controller('newConsignmentCtrl', ['$scope', '$mdDialog', function($scope) {
+
+        //adding products to the consignment
 
         $scope.products = [];
 
@@ -41,5 +43,60 @@ angular.module('myApp.newConsignment', ['ngRoute'])
         };
 
 
+        //creating consignments
+        $scope.consignments = [];
+
+        $scope.addConsignment = function() {
+            //consignments=getconsignments
+            if($scope.getConsignments.length !== 0){
+                $scope.consignments = $scope.getConsignments;
+            }
+            $scope.consignments.push({'products' : $scope.products});
+            $scope.products = [];
+            window.localStorage.setItem('consignmentsStorage',JSON.stringify($scope.consignments));
+        }
+
+        /*
+        $scope.getConsignments = function() {
+            return JSON.parse(localStorage.getItem('consignmentsStorage'));
+        }
+        */
+        $scope.getConsignments = JSON.parse(window.localStorage.getItem('consignmentsStorage'));
+
+    }])
+
+    .controller('consignments', ['$scope', '$mdDialog', function($scope){
+
+
 
     }]);
+
+
+/*
+https://github.com/tkssharma/Angular-Common
+(function () {
+    'use strict';
+    var app = angular.module('Angularapps');
+
+    app.factory('$localStorage', ['$window', function($window) {
+        return {
+            set: function(key, value) {
+                $window.localStorage[key] = value;
+            },
+            get: function(key, defaultValue) {
+                return $window.localStorage[key] || defaultValue;
+            },
+            setObject: function(key, value) {
+                $window.localStorage[key] = JSON.stringify(value);
+            },
+            getObject: function(key) {
+                return JSON.parse($window.localStorage[key] || '{}');
+            },
+            remove: function(key){
+                delete $window.localStorage[key];
+            }
+        }
+    }]);
+
+})();
+*/
