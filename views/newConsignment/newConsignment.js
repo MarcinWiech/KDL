@@ -24,7 +24,7 @@ angular.module('myApp.newConsignment', ['ngRoute'])
 
                 $scope.serialNumbersArray.push({'serialNumber': ''});
 
-            };
+            }
 
             $scope.products.push({'iso8000Identifier': $scope.newProductName, 'NoI': $scope.nOI, 'batchNumber': $scope.batchNumber, 'serialNumbers': $scope.serialNumbersArray, 'showSerialNumbers':$scope.showSerialNumbers});
             $scope.serialNumbersArray = [];
@@ -56,22 +56,18 @@ angular.module('myApp.newConsignment', ['ngRoute'])
             $scope.consignments.push({'products' : $scope.products});
             $scope.products = [];
             window.localStorage.setItem('consignmentsStorage',JSON.stringify($scope.consignments));
-        }
+        };
 
-        /*
-        $scope.getConsignments = function() {
-            return JSON.parse(localStorage.getItem('consignmentsStorage'));
-        }
-        */
         $scope.getConsignments = JSON.parse(window.localStorage.getItem('consignmentsStorage'));
 
-    }])
-
-    .controller('consignments', ['$scope', '$mdDialog', function($scope){
-
+        $scope.myConsignmentShowHide = function(){
+            $scope.getConsignments.products.showSerialNumbers = !$scope.getConsignments.products.showSerialNumbers;
+        };
 
 
     }]);
+
+
 
 
 /*

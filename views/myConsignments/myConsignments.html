@@ -1,15 +1,7 @@
 
 <link rel="stylesheet" href="views/myConsignments/myConsignments.css">
+
 <div>
-    <div ng-app="myApp.newConsignment" ng-controller="newConsignmentCtrl">
-        <div ng-repeat="consignment in getConsignments">
-            <div>
-                {{consignment}}
-            </div>
-        </div>
-    </div>
-
-
 
     <div>
         <h1>My consignments</h1>
@@ -20,41 +12,55 @@
 
         <div ng-repeat="consignment in getConsignments">
         <!-- these are proper consignments -->
-            <div layout="column" class="post" md-whiteframe="{{ctrl.elevation}}" style="padding-left: 20px;">
+            <div layout="column" class="post" md-whiteframe="{{ctrl.elevation}}" style="padding-left: 20px; margin:auto;">
                 <div style="text-align: center; vertical-align: middle;">
-                    <h2><b>Consignment</b> number {{consignment}}</h2>
+                    <h2><b>Consignment</b> number </h2> <!-- {{consignment.products}} -->
+
                 </div>
 
-                <div layout="row">
-                    <div flex="50">
+                <div flex="100" layout="row">
+                    <div flex="5" class="cell">
+                        <h3>#</h3>
+                    </div>
+                    <div flex="35">
                         <h3>ISO 8000-115</h3>
                     </div>
-                    <div flex="25" style="text-align: center;">
-                        <h3>Number of items</h3>
+                    <div flex="15" style="text-align: center;">
+                        <h3>Quantity</h3>
                     </div>
-                    <div flex="15">
+                    <div flex="15" style="text-align: center;">
+                        <h3>Batch no.</h3>
+                    </div>
+                    <div flex="30" style="text-align: center;">
                         <h3>Serial numbers</h3>
-                    </div>
-                    <div flex="10" style="text-align: center;">
-                        <h3>Delete</h3>
                     </div>
                 </div>
 
-                <div layout="column">
+                <div layout="column" ng-repeat="product in consignment.products">
                     <div flex="100"layout="row">
-                        <div flex="50" class="cell">
-                            LOVEJOY:SPIDEX-ALU-A19-12H7
+                        <div flex="5" class="cell">
+                            {{$index + 1}}
                         </div>
-                        <div flex="25"  class="cell" style="text-align: center;">
-                            17
+                        <div flex="35" class="cell" >
+                            {{product.iso8000Identifier}}
                         </div>
-                        <div flex="15" class="centreButton">
-                            <md-button class="md-raised" style="background-color: grey">Add S/N</md-button>
+                        <div flex="15"  class="cell" style="text-align: center;" >
+                            {{product.NoI}}
                         </div>
-                        <div flex="10" class="cell" style="text-align: center;">
-                            <i class="fas fa-trash"></i>
+                        <div flex="15"  class="cell" style="text-align: center;">
+                            {{product.showSerialNumbers}}
+                        </div>
+                        <div flex="30" class="centreButton">
+                            <md-button class="md-primary md-raised"> <!-- ng-click="myConsignmentShowHide()" -->
+                                {{product.showSerialNumbers ? 'Close' : 'View'}} S/N
+                            </md-button>
                         </div>
                     </div>
+                    <!--<div ng-show = product.showSerialNumbers layout="column">
+                        <div ng-repeat= "serialNumber in product.serialNumbers" style="margin-left: 10%; width:70%; padding: 0px 0; margin-bottom: 0px;">
+                            {{serialNumber}}
+                        </div>
+                    </div>-->
                 </div>
 
                 <div layout="row" style="display: flex;padding-top: 20px; float: left;">
