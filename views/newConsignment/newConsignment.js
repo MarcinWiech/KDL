@@ -24,10 +24,11 @@ angular.module('myApp.newConsignment', ['ngRoute'])
 
             };
 
-            $scope.products.push({'iso8000Identifier': $scope.newProductName, 'NoI': $scope.nOI, 'serialNumbers': $scope.serialNumbersArray, 'showSerialNumbers':$scope.showSerialNumbers});
+            $scope.products.push({'iso8000Identifier': $scope.newProductName, 'NoI': $scope.nOI, 'batchNumber': $scope.batchNumber, 'serialNumbers': $scope.serialNumbersArray, 'showSerialNumbers':$scope.showSerialNumbers});
             $scope.serialNumbersArray = [];
-            $scope.newProductName= '';
-            $scope.nOI= '';
+            $scope.newProductName = '';
+            $scope.nOI = '';
+            $scope.batchNumber = '';
         };
 
         $scope.deleteProduct = function(index) {
