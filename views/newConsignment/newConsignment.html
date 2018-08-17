@@ -8,45 +8,8 @@
 <div layout="row" layout-padding="" layout-wrap="" layout-margin="" ng-cloak="" layout-align="space-around" style="margin: auto" ng-app="myApp.newConsignment" ng-controller="newConsignmentCtrl">
 
     <!-- Consignment divs !-->
-    <md-button class="md-primary md-raised" ng-click="showAdvanced($event)">
-        Add serial numbers
-    </md-button>
-
-
-    <script type="text/ng-template" id="dialog1.tmpl.html"><md-dialog aria-label="Mango (Fruit)">
-    <form ng-cloak>
-        <md-toolbar>
-            <div class="md-toolbar-tools">
-                <h2>Add serial numbers</h2>
-                <span flex></span>
-                <md-button class="md-icon-button" ng-click="cancel()">
-                    <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
-                </md-button>
-            </div>
-        </md-toolbar>
-
-        <md-dialog-content>
-            <div class="md-dialog-content">
-                <h1>add table</h1>
-            </div>
-        </md-dialog-content>
-
-        <md-dialog-actions layout="row">
-            <span flex></span>
-            <md-button ng-click="answer('not useful')">
-                Cancel
-            </md-button>
-            <md-button ng-click="answer('useful')">
-                Save
-            </md-button>
-        </md-dialog-actions>
-    </form>
-    </md-dialog>
-    </script>
-
-
-
     <div class="post" md-whiteframe="{{ctrl.elevation}}" style="padding-left: 20px;">
+
         <div flex="100"  style="text-align: center; vertical-align: middle;">
             <h2><b>Consignment</b></h2>
         </div>
@@ -68,35 +31,45 @@
                 <h3>Delete</h3>
             </div>
         </div>
+
         <div flex="100" layout="column" ng-repeat="product in products">
-            <div flex="100"layout="row">
-                <div flex="10" class="cell">
-                    {{$index + 1}}
+            <div layout="column">
+                <div flex="100"layout="row">
+                    <div flex="10" class="cell">
+                        {{$index + 1}}
+                    </div>
+                    <div flex="40" class="cell">
+                        {{product.iso8000Identifier}}
+                    </div>
+                    <div flex="25"  class="cell" style="text-align: center;">
+                        {{product.NoI}}
+                    </div>
+                    <div flex="15" class="centreButton">
+                        <md-button class="md-primary md-raised" ng-click="showHideSerialNumbers($index)">
+                        {{product.showSerialNumbers ? 'Close' : 'Add'}} S/N
+                        </md-button>
+                    </div>
+                    <div flex="10" class="cell" style="text-align: center;">
+                        <i class="fas fa-trash" ng-click="deleteProduct($index)"></i>
+                        <!-- <md-icon md-svg-src="/home/Perforce/Marcin_Marcin_7490/websites/koiosmasterdata_com/v1/images/icons/ic_delete_black_24px.svg"></md-icon> !-->
+                    </div>
                 </div>
-                <div flex="40" class="cell">
-                    {{product.iso8000Identifier}}
-                </div>
-                <div flex="25"  class="cell" style="text-align: center;">
-                    {{product.NoI}}
-                </div>
-                <div flex="15" class="centreButton">
-                    <md-button class="md-mini">
-                        <md-icon md-svg-src="images/baseline-add-24px.svg"></md-icon>
-                    </md-button>
-                </div>
-                <div flex="10" class="cell" style="text-align: center;">
-                    <i class="fas fa-trash" ng-click="deleteProduct($index)"></i>
-                    <!-- <md-icon md-svg-src="/home/Perforce/Marcin_Marcin_7490/websites/koiosmasterdata_com/v1/images/icons/ic_delete_black_24px.svg"></md-icon> !-->
+                <div ng-show = products[$index].showSerialNumbers layout="column">
+                    <md-input-container ng-repeat= "serialNumber in products[$index].serialNumbers" style="width:98%; padding: 0px 0; margin-bottom: 0px;">
+                            <label>Serial Number</label>
+                            <input name="inputSerialNumber" ng-model="serialNumber.serialNumber">
+                    </md-input-container>
                 </div>
             </div>
         </div>
+
         <div style="margin-top: 50px;">
             New product details
             <form name="productForm" ng-submit="addProduct()">
                 <div layout="column">
                     <md-input-container style="width:98%; padding: 0px 0; margin-bottom: 0px;">
                         <label>ISO 8000-115 identifier</label>
-                        <input name="newProduct" ng-model="newProduct" required>
+                        <input name="newProductName" ng-model="newProductName" required>
                     </md-input-container>
                     <md-input-container style="width:98%; padding: 0px 0; margin: 0px;">
                         <label>Number of items</label>

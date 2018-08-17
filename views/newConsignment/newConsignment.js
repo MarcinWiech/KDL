@@ -14,39 +14,31 @@ angular.module('myApp.newConsignment', ['ngRoute'])
         $scope.products = [];
 
         $scope.addProduct = function() {
-            $scope.products.push({'iso8000Identifier': $scope.newProduct, 'NoI': $scope.nOI});
-            $scope.newProduct= '';
-            $scope.nOI = '';
+
+            $scope.serialNumbersArray = [];
+            $scope.showSerialNumbers = false;
+
+            for (var i = 0; i <$scope.nOI; i++){
+
+                $scope.serialNumbersArray.push({'serialNumber': ''});
+
+            };
+
+            $scope.products.push({'iso8000Identifier': $scope.newProductName, 'NoI': $scope.nOI, 'serialNumbers': $scope.serialNumbersArray, 'showSerialNumbers':$scope.showSerialNumbers});
+            $scope.serialNumbersArray = [];
+            $scope.newProductName= '';
+            $scope.nOI= '';
         };
 
-        $scope.showAdvanced = function(ev) {
-            $mdDialog.show({
-                controller: DialogController,
-                templateUrl: 'dialog1.tmpl.html',
-                parent: angular.element(document.body),
-                targetEvent: ev,
-                clickOutsideToClose:true,
-                fullscreen: $scope.customFullscreen // Only for -xs, -sm breakpoints.
-            })
-                .then(function(answer) {
-                    $scope.status = 'You said the information was "' + answer + '".';
-                }, function() {
-                    $scope.status = 'You cancelled the dialog.';
-                });
+        $scope.deleteProduct = function(index) {
+            $scope.products.splice(index, 1);
         };
 
-        function DialogController($scope, $mdDialog) {
-            $scope.hide = function() {
-                $mdDialog.hide();
-            };
 
-            $scope.cancel = function() {
-                $mdDialog.cancel();
-            };
+        $scope.showHideSerialNumbers = function(index){
+            $scope.products[index].showSerialNumbers = !$scope.products[index].showSerialNumbers;
+        };
 
-            $scope.answer = function(answer) {
-                $mdDialog.hide(answer);
-            };
-        }
+
 
     }]);
