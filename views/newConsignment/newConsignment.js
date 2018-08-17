@@ -47,8 +47,10 @@ angular.module('myApp.newConsignment', ['ngRoute'])
         $scope.consignments = [];
 
         $scope.addConsignment = function() {
-            //consignments=getconsignments
-            if($scope.getConsignments.length !== 0){
+
+            //potentially need to say if !== 0
+
+            if($scope.getConsignments !== null){
                 $scope.consignments = $scope.getConsignments;
             }
             $scope.consignments.push({'products' : $scope.products});

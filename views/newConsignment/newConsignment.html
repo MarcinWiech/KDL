@@ -43,10 +43,10 @@
                     <div flex="5" class="cell">
                         {{$index + 1}}
                     </div>
-                    <div flex="35" class="cell">
+                    <div flex="35" class="cell" >
                         {{product.iso8000Identifier}}
                     </div>
-                    <div flex="15"  class="cell" style="text-align: center;">
+                    <div flex="15"  class="cell" style="text-align: center;" >
                         {{product.NoI}}
                     </div>
                     <div flex="25"  class="cell" style="text-align: center;">
@@ -64,8 +64,8 @@
                 </div>
                 <div ng-show = products[$index].showSerialNumbers layout="column">
                     <md-input-container ng-repeat= "serialNumber in products[$index].serialNumbers" style="margin-left: 10%; width:70%; padding: 0px 0; margin-bottom: 0px;">
-                            <label>Serial Number</label>
-                            <input name="inputSerialNumber" ng-model="serialNumber.serialNumber">
+                        <label>Serial Number</label>
+                        <input name="inputSerialNumber" ng-model="serialNumber.serialNumber">
                     </md-input-container>
                 </div>
             </div>
@@ -100,7 +100,7 @@
             </div>
         </div>
         <div flex="20" layout="row" style="display: flex;padding-top: 20px;float:right;">
-            <md-button class="md-raised" style="background-color: grey" ng-click="addConsignment()">Finish</md-button>
+            <md-button class="md-raised" style="background-color: grey" ng-disabled="products.length == 0" ng-click="addConsignment()">Finish</md-button>
         </div>
     </div>
 </div>
