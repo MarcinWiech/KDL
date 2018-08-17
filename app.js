@@ -18,11 +18,9 @@ var myApp = angular.module('MyApp', [
     'myApp.companyScans',
     'myApp.map',
     'myApp.employeesInvolved',
-    'myApp.consignmentScans'
+    'myApp.consignmentScans',
+    'myApp.editConsignment',
 ]);
-
-    myApp.controller('BasicDemoCtrl', function($scope) {
-    });
 
     myApp.controller('sidenavCtrl', function($scope, $location) {
         $scope.selectedMenu = 'dashboard';
@@ -89,6 +87,9 @@ var myApp = angular.module('MyApp', [
             })
             .when('/views/scans/consignmentScans', {
                 templateUrl: '/consignmentScans.html',
+            })
+            .when('/views/editConsignment/editConsignment', {
+                templateUrl: '/editConsignment.html',
             })
             .otherwise({
             redirectTo: '/home'
