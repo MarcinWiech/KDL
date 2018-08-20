@@ -72,15 +72,15 @@ angular.module('myApp.newConsignment', ['ngRoute'])
             $scope.getConsignments.products.showSerialNumbers = !$scope.getConsignments.products.showSerialNumbers;
         };
         */
-        $scope.showHideSerialNumbers = function(product){
-            
-        }
+
 
         $scope.removeConsignment = function(consignment){
 
             $scope.index = $scope.getConsignments.indexOf(consignment);
             if ($scope.index > -1) {
-                $scope.saveConsignments($scope.getConsignments.splice($scope.index, 1));
+                $scope.currentConsignments = $scope.getConsignments;
+                $scope.currentConsignments.splice($scope.index, 1);
+                $scope.saveConsignments($scope.currentConsignments);
             }
         }
 
