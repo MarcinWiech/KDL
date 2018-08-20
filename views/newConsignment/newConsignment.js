@@ -9,7 +9,7 @@ angular.module('myApp.newConsignment', ['ngRoute'])
         });
     }])
 
-    .controller('newConsignmentCtrl', ['$scope', '$mdDialog', function($scope) {
+    .controller('newConsignmentCtrl', ['$scope', '$mdToast', function($scope, $mdToast) {
 
         //adding products to the consignment
 
@@ -67,11 +67,9 @@ angular.module('myApp.newConsignment', ['ngRoute'])
 
         $scope.getConsignments = JSON.parse(window.localStorage.getItem('consignmentsStorage'));
 
-/*
-        $scope.showHideSerialNumbers = function(){
-            $scope.getConsignments.products.showSerialNumbers = !$scope.getConsignments.products.showSerialNumbers;
+        $scope.showProductSerialNumbers = function(product){
+            product.showSerialNumbers = !product.showSerialNumbers;
         };
-        */
 
 
         $scope.removeConsignment = function(consignment){
@@ -90,37 +88,30 @@ angular.module('myApp.newConsignment', ['ngRoute'])
             window.localStorage.setItem('editedConsignment',JSON.stringify($scope.getConsignments[index]));
         };
 
+        $scope.downloadFile = function(downloadPath) {
+            window.open(downloadPath);
+        };
+
+        $scope.finishConsignmentToast = function() {
+
+            $mdToast.show(
+                $mdToast.simple()
+                    .textContent('Consignment added to my consignments')
+                    .position('top right')
+                    .hideDelay(2000)
+            );
+        };
+
+        //New Shipment methods
+
+        $scope.finishShipmentToast = function() {
+
+            $mdToast.show(
+                $mdToast.simple()
+                    .textContent('Shipment added to my shipments')
+                    .position('top right')
+                    .hideDelay(2000)
+            );
+        };
 
     }]);
-
-
-
-
-/*
-https://github.com/tkssharma/Angular-Common
-(function () {
-    'use strict';
-    var app = angular.module('Angularapps');
-
-    app.factory('$localStorage', ['$window', function($window) {
-        return {
-            set: function(key, value) {
-                $window.localStorage[key] = value;
-            },
-            get: function(key, defaultValue) {
-                return $window.localStorage[key] || defaultValue;
-            },
-            setObject: function(key, value) {
-                $window.localStorage[key] = JSON.stringify(value);
-            },
-            getObject: function(key) {
-                return JSON.parse($window.localStorage[key] || '{}');
-            },
-            remove: function(key){
-                delete $window.localStorage[key];
-            }
-        }
-    }]);
-
-})();
-*/
