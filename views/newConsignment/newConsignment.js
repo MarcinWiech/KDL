@@ -43,26 +43,46 @@ angular.module('myApp.newConsignment', ['ngRoute'])
         };
 
 
-        //creating consignments
         $scope.consignments = [];
 
         $scope.addConsignment = function() {
 
-            //potentially need to say if !== 0
-
             if($scope.getConsignments !== null){
                 $scope.consignments = $scope.getConsignments;
             }
+            //add all the products as a new consignment to the consignments array
             $scope.consignments.push({'products' : $scope.products});
+
+            //clear products so that the new consignment is empty
             $scope.products = [];
-            window.localStorage.setItem('consignmentsStorage',JSON.stringify($scope.consignments));
+
+            //save consignments to the local memory
+            $scope.saveConsignments($scope.consignments);
         };
+
+        //save consignments to the local memory
+        $scope.saveConsignments = function(consignments){
+            window.localStorage.setItem('consignmentsStorage',JSON.stringify(consignments));
+        }
 
         $scope.getConsignments = JSON.parse(window.localStorage.getItem('consignmentsStorage'));
 
-        $scope.myConsignmentShowHide = function(){
+/*
+        $scope.showHideSerialNumbers = function(){
             $scope.getConsignments.products.showSerialNumbers = !$scope.getConsignments.products.showSerialNumbers;
         };
+        */
+        $scope.showHideSerialNumbers = function(product){
+            
+        }
+
+        $scope.removeConsignment = function(consignment){
+
+            $scope.index = $scope.getConsignments.indexOf(consignment);
+            if ($scope.index > -1) {
+                $scope.saveConsignments($scope.getConsignments.splice($scope.index, 1));
+            }
+        }
 
 
     }]);
