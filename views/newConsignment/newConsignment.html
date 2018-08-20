@@ -53,7 +53,7 @@
                         {{product.batchNumber}}
                     </div>
                     <div flex="15" class="centreButton">
-                        <md-button ng-click="showHideSerialNumbers($index)" class="md-primary md-raised">
+                        <md-button class="md-primary md-raised" ng-click="showHideSerialNumbers($index)">
                         {{product.showSerialNumbers ? 'Close' : 'Add'}} S/N
                         </md-button>
                     </div>
@@ -100,7 +100,7 @@
             </div>
         </div>
         <div flex="20" layout="row" style="display: flex;padding-top: 20px;float:right;">
-            <md-button class="md-raised" style="background-color: grey" ng-disabled="products.length == 0" ng-click="addConsignment()">Finish</md-button>
+            <md-button class="md-raised" style="background-color: grey" ng-disabled="products.length == 0" ng-click="addConsignment(); finishConsignmentToast()">Finish</md-button>
         </div>
     </div>
 </div>

@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="views/changeOfCustody/changeOfCustody.css">
 
-<div>
+<div ng-app="myApp.newShipment" ng-controller="newShipmentCtrl">
     <div>
         <h1>Declare the change of Custody</h1>
     </div>
@@ -11,6 +11,6 @@
         </md-input-container>
     </div>
     <div style="float:right">
-        <md-button class="md-raised" ng-href="#!/home">Finish</md-button>
+        <md-button class="md-raised" ng-click="finishShipmentToast()" ng-href="#!/home">Finish</md-button>
     </div>
 </div>

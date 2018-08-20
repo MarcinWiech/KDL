@@ -50,14 +50,14 @@
                             {{product.batchNumber}}
                         </div>
                         <div flex="30" class="centreButton">
-                            <md-button class="md-primary md-raised" ng-click="showHideSerialNumbers($index)"> <!-- ng-click="showHideSerialNumbers()" -->
+                            <md-button class="md-primary md-raised" ng-click="product.showSerialNumbers = !product.showSerialNumbers"> <!-- ng-click="showHideSerialNumbers()" -->
                                 {{product.showSerialNumbers ? 'Close' : 'View'}} S/N
                             </md-button>
                         </div>
                     </div>
-                    <div ng-show = consignment.products[$index].showSerialNumbers layout="column">
+                    <div ng-show = product.showSerialNumbers layout="column">
                         <div ng-repeat= "serialNumber in product.serialNumbers" style="margin-left: 10%; width:70%; padding: 0px 0; margin-bottom: 0px;">
-                            {{serialNumber.serialNumber}}
+                            #{{$index + 1}}:  {{serialNumber.serialNumber}}
                         </div>
                     </div>
 
@@ -71,7 +71,9 @@
                 <div layout="row" style="display: flex;padding-top: 20px; float: left;">
                     <div flex="80" layout="row" style="float: left">
                         <div class="centreButton">
-                            <md-button class="md-raised" style="background-color: grey">Generate QR code</md-button>
+                            <a download="qr.svg" href="images/qr.svg">
+                            <md-button class="md-raised">Generate QR code</md-button>
+                            </a>
                         </div>
                         <div class="centreButton">
                             <md-button class="md-raised" style="background-color: grey">History</md-button>
