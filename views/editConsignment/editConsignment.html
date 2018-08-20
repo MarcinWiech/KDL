@@ -7,12 +7,11 @@
 
 <div layout="row" layout-padding="" layout-wrap="" layout-margin="" ng-cloak="" layout-align="space-around" style="margin: auto;" ng-app="myApp.newConsignment" ng-controller="newConsignmentCtrl">
 
-
     <!-- Consignment divs !-->
-    <div class="post" md-whiteframe="{{ctrl.elevation}}" style="padding-left: 20px;">
+    <div class="post" md-whiteframe="{{ctrl.elevation}}" style="padding-left: 20px;" ng-app="myApp.editConsignment" ng-controller="editConsignmentCtrl">
 
         <div flex="100"  style="text-align: center; vertical-align: middle;">
-            <h2><b>Consignment</b></h2>
+            <h2><b>Consignment number {{consignmentIndex}}</b></h2>
         </div>
 
         <div flex="100" layout="row">
@@ -36,7 +35,7 @@
             </div>
         </div>
 
-        <div flex="100" layout="column" ng-repeat="product in products">
+        <div flex="100" layout="column" ng-repeat="product in editProducts.products">
             <div layout="column">
                 <div flex="100"layout="row">
                     <div flex="5" class="cell">
@@ -52,17 +51,17 @@
                         {{product.batchNumber}}
                     </div>
                     <div flex="15" class="centreButton">
-                        <md-button class="md-primary md-raised" ng-click="showHideSerialNumbers($index)">
+                        <md-button class="md-primary md-raised" ng-click="product.showSerialNumbers = !product.showSerialNumbers">
                             {{product.showSerialNumbers ? 'Close' : 'Add'}} S/N
                         </md-button>
                     </div>
                     <div flex="10" class="cell" style="text-align: center;">
-                        <i class="fas fa-trash" ng-click="deleteProduct($index)"></i>
+                        <i class="fas fa-trash" ng-click="deleteEditProduct($index)"></i>
                         <!-- <md-icon md-svg-src="/home/Perforce/Marcin_Marcin_7490/websites/koiosmasterdata_com/v1/images/icons/ic_delete_black_24px.svg"></md-icon> !-->
                     </div>
                 </div>
-                <div ng-show = products[$index].showSerialNumbers layout="column">
-                    <md-input-container ng-repeat= "serialNumber in products[$index].serialNumbers" style="margin-left: 10%; width:70%; padding: 0px 0; margin-bottom: 0px;">
+                <div ng-show = product.showSerialNumbers layout="column">
+                    <md-input-container ng-repeat= "serialNumber in product.serialNumbers" style="margin-left: 10%; width:70%; padding: 0px 0; margin-bottom: 0px;">
                         <label>Serial Number</label>
                         <input name="inputSerialNumber" ng-model="serialNumber.serialNumber">
                     </md-input-container>
@@ -72,7 +71,7 @@
 
         <div style="margin-top: 50px;">
             New product details
-            <form name="productForm" ng-submit="addProduct()">
+            <form name="productForm" ng-submit="addProductToEdit()">
                 <div layout="column">
                     <md-input-container style="width:98%; padding: 0px 0; margin-bottom: 0px;">
                         <label>ISO 8000-115 identifier</label>
@@ -92,93 +91,14 @@
 
         <div flex="80" layout="row" style="display: flex;padding-top: 20px; float: left;">
             <div class="centreButton" flex="auto">
-                <md-button class="md-raised" ng-disabled="productForm.$invalid" ng-click="addProduct()">Add new product</md-button>
+                <md-button class="md-raised" ng-disabled="productForm.$invalid" ng-click="addProductToEdit()">Add new product</md-button>
             </div>
             <div class="centreButton" flex="auto">
                 <md-button class="md-raised" style="background-color: grey">Add photo</md-button>
             </div>
         </div>
         <div flex="20" layout="row" style="display: flex;padding-top: 20px;float:right;">
-            <md-button class="md-raised" style="background-color: grey" ng-disabled="products.length == 0" ng-click="addConsignment()">Finish</md-button>
-        </div>
-    </div>
-
-    <div ng-repeat="consignment in getConsignments">
-        <!-- these are proper consignments -->
-        <div layout="column" class="post" md-whiteframe="{{ctrl.elevation}}" style="padding-left: 20px; margin:auto;">
-            <div style="text-align: center; vertical-align: middle;">
-                <h2><b>Consignment</b> number </h2> <!-- {{consignment.products}} -->
-
-            </div>
-
-            <div flex="100" layout="row">
-                <div flex="5" class="cell">
-                    <h3>#</h3>
-                </div>
-                <div flex="35">
-                    <h3>ISO 8000-115</h3>
-                </div>
-                <div flex="15" style="text-align: center;">
-                    <h3>Quantity</h3>
-                </div>
-                <div flex="15" style="text-align: center;">
-                    <h3>Batch no.</h3>
-                </div>
-                <div flex="30" style="text-align: center;">
-                    <h3>Serial numbers</h3>
-                </div>
-            </div>
-
-            <div layout="column" ng-repeat="product in consignment.products">
-                <div flex="100"layout="row">
-                    <div flex="5" class="cell">
-                        {{$index + 1}}
-                    </div>
-                    <div flex="35" class="cell" >
-                        {{product.iso8000Identifier}}
-                    </div>
-                    <div flex="15"  class="cell" style="text-align: center;" >
-                        {{product.NoI}}
-                    </div>
-                    <div flex="15"  class="cell" style="text-align: center;">
-                        {{product.showSerialNumbers}}
-                    </div>
-                    <div flex="30" class="centreButton">
-                        <md-button class="md-primary md-raised"> <!-- ng-click="showHideSerialNumbers()" -->
-                            {{product.showSerialNumbers ? 'Close' : 'View'}} S/N
-                        </md-button>
-                    </div>
-                </div>
-                <!--<div ng-show = product.showSerialNumbers layout="column">
-                    <div ng-repeat= "serialNumber in product.serialNumbers" style="margin-left: 10%; width:70%; padding: 0px 0; margin-bottom: 0px;">
-                        {{serialNumber}}
-                    </div>
-                </div>-->
-            </div>
-
-            <div layout="row" style="display: flex;padding-top: 20px; float: left;">
-                <div flex="80" layout="row" style="float: left">
-                    <div class="centreButton">
-                        <md-button class="md-raised" style="background-color: grey">Generate QR code</md-button>
-                    </div>
-                    <div class="centreButton">
-                        <md-button class="md-raised" style="background-color: grey">History</md-button>
-                    </div>
-                    <div class="centreButton">
-                        <md-button class="md-raised" style="background-color: grey">Start shipment</md-button>
-                    </div>
-                    <div class="centreButton">
-                        <md-button class="md-raised" style="background-color: grey" ng-href="#!/editConsignment">
-                            <i class="fas fa-pen"></i>
-                        </md-button>
-                    </div>
-                </div>
-                <div flex="20">
-                    <md-button class="md-raised" style="float:right;background-color: grey">
-                        <i class="fas fa-trash"></i>
-                    </md-button>
-                </div>
-            </div>
+            <md-button class="md-raised" ng-disabled="editProducts.products.length == 0" ng-click="addConsignmentFromEdit()" ng-href="#!/myConsignments">Finish</md-button>
         </div>
     </div>
 </div>

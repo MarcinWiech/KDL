@@ -63,7 +63,7 @@ angular.module('myApp.newConsignment', ['ngRoute'])
         //save consignments to the local memory
         $scope.saveConsignments = function(consignments){
             window.localStorage.setItem('consignmentsStorage',JSON.stringify(consignments));
-        }
+        };
 
         $scope.getConsignments = JSON.parse(window.localStorage.getItem('consignmentsStorage'));
 
@@ -82,7 +82,13 @@ angular.module('myApp.newConsignment', ['ngRoute'])
                 $scope.currentConsignments.splice($scope.index, 1);
                 $scope.saveConsignments($scope.currentConsignments);
             }
-        }
+        };
+
+        $scope.getEditConsignment = function(index){
+
+            window.localStorage.setItem('editedConsignmentIndex',index);
+            window.localStorage.setItem('editedConsignment',JSON.stringify($scope.getConsignments[index]));
+        };
 
 
     }]);

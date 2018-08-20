@@ -14,7 +14,7 @@
         <div ng-repeat="consignment in getConsignments">
             <div layout="column" class="post" md-whiteframe="{{ctrl.elevation}}" style="padding-left: 20px; margin:auto;">
                 <div style="text-align: center; vertical-align: middle;">
-                    <h2><b>Consignment</b> number</h2> <!-- {{consignment.products}} -->
+                    <h2><b>Consignment number {{$index}}</b></h2> <!-- {{consignment.products}} -->
                 </div>
 
                 <div flex="100" layout="row">
@@ -80,7 +80,7 @@
                             <md-button class="md-raised" style="background-color: grey">Start shipment</md-button>
                         </div>
                         <div class="centreButton">
-                            <md-button class="md-raised" style="background-color: grey" ng-href="#!/editConsignment">
+                            <md-button class="md-raised" ng-click="getEditConsignment($index)" ng-href="#!/editConsignment" >
                                 <i class="fas fa-pen"></i>
                             </md-button>
                         </div>
