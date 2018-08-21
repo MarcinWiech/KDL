@@ -133,12 +133,17 @@ angular.module('myApp.newShipment', ['ngRoute'])
 
         //----------------------------------FROM NEW CONSIGNMENT END------------------------------------------//
 
-        $scope.shipment = {
-            id : '',
-            consignments : [],
+        $scope.shipments = [];
 
+        $scope.addShipment = function() {
 
-        };
+            if($scope.getConsignments.length !== 0){
+
+                $scope.shipments.push({'consignments': $scope.getConsignments});
+                $scope.saveConsignments([]);
+            }
+        }
+
 
 
 

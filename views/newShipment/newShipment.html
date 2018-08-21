@@ -1,13 +1,11 @@
 <link rel="stylesheet" href="views/newShipment/newShipment.css">
 
-<div>
+<div ng-app="myApp.newShipment" ng-controller="newShipmentCtrl">
     <div>
         <h1>New shipment</h1>
     </div>
 
-
-    <div layout="row" layout-padding="" layout-wrap="" layout-margin="" ng-cloak="" layout-align="space-around" style="margin: auto" ng-app="myApp.newShipment" ng-controller="newShipmentCtrl" >
-
+    <div layout="row" layout-padding="" layout-wrap="" layout-margin="" ng-cloak="" layout-align="space-around" style="margin: auto">
         <!-- these are proper consignments -->
         <div ng-repeat="consignment in getConsignments">
             <div layout="column" class="post" md-whiteframe="{{ctrl.elevation}}" style="padding-left: 20px; margin:auto;">
@@ -185,13 +183,11 @@
                 </div>
             </div>
             <div flex="20" layout="row" style="display: flex;padding-top: 20px;float:right;">
-                <md-button class="md-raised" style="background-color: grey" ng-disabled="products.length == 0" ng-click="addConsignment()">Add</md-button>
+                <md-button class="md-raised" ng-disabled="products.length == 0" ng-click="addConsignment()">Add</md-button>
             </div>
         </div>
     </div>
     <div style="float: right;" layout-margin="">
-        <md-button class="md-raised" style="background-color: grey" ng-click="addConsignment()">Add new consignment</md-button>
-        <md-button class="md-raised" ng-href="#!/changeOfCustody">Next</md-button>
+        <md-button class="md-raised" ng-href="#!/changeOfCustody" ng-disabled="getConsignments.length == 0" ng-click="addShipment()">Next</md-button>
     </div>
 </div>
-
