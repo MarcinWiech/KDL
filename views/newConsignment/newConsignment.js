@@ -48,7 +48,7 @@ angular.module('myApp.newConsignment', ['ngRoute'])
                 .targetEvent(ev)
                 .ok('Confirm delete')
                 .cancel('Cancel');
-        }
+        };
 
 
         $scope.showHideSerialNumbers = function(index){
@@ -93,14 +93,6 @@ angular.module('myApp.newConsignment', ['ngRoute'])
             product.showSerialNumbers = !product.showSerialNumbers;
         };
 
-        $scope.setEditConsignment = function(index, originPage){
-
-            window.localStorage.setItem('editedConsignmentIndex',index);
-            window.localStorage.setItem('editedConsignment',JSON.stringify($scope.getConsignments[index]));
-            window.localStorage.setItem('originPage', originPage)
-        };
-
-
         $scope.downloadFile = function(downloadPath) {
             window.open(downloadPath);
         };
@@ -123,5 +115,12 @@ angular.module('myApp.newConsignment', ['ngRoute'])
                     .position('top right')
                     .hideDelay(2000)
             );
+        };
+
+        $scope.setEditConsignment = function(index, originPage){
+
+            window.localStorage.setItem('editedConsignmentIndex',index);
+            window.localStorage.setItem('editedConsignment',JSON.stringify($scope.getConsignments[index]));
+            window.localStorage.setItem('originPage', originPage)
         };
     }]);

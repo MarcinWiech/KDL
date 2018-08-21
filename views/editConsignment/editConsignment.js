@@ -9,7 +9,7 @@ angular.module('myApp.editConsignment', ['ngRoute'])
         });
     }])
     //---------THIS CONTROLLER COMMUNICATES WITH BOTH newShipment.js and myConsignments.js----//
-    .controller('editConsignmentCtrl', ['$scope', function($scope) {
+    .controller('editConsignmentCtrl', ['$scope', '$mdDialog', function($scope, $mdDialog) {
 
         $scope.editProducts = JSON.parse(window.localStorage.getItem('editedConsignment'));
 
@@ -34,8 +34,21 @@ angular.module('myApp.editConsignment', ['ngRoute'])
             $scope.batchNumber = '';
         };
 
-        $scope.deleteEditProduct = function(index) {
-            $scope.editProducts.products.splice(index, 1);
+        //when deleting a product from the edit screen request user to confirm
+        $scope.deleteEditProductPopUp = function(ev, index) {
+            // Appending dialog to document.body to cover sidenav in docs app
+            $mdDialog.show($scope.showPopUp(ev), index).then(function() {
+                $scope.editProducts.products.splice(index, 1);
+            });
+        };
+
+        $scope.showPopUp = function(ev){
+            return confirm = $mdDialog.confirm()
+                .title('Are you sure you want to delete?')
+                .textContent('You cannot undo this action once you confirm')
+                .targetEvent(ev)
+                .ok('Confirm delete')
+                .cancel('Cancel');
         };
 
         $scope.saveConsignments = function(consignments){

@@ -84,7 +84,7 @@
                         </div>
                     </div>
                     <div flex="20">
-                        <md-button class="md-raised" style="float:right;" ng-click="removeConsignment(consignment)">
+                        <md-button class="md-raised" style="float:right;" ng-click="deleteConsignmentPopUp($event, $index)">
                             <i class="fas fa-trash"></i>
                         </md-button>
                     </div>
@@ -141,7 +141,7 @@
                             </md-button>
                         </div>
                         <div flex="10" class="cell" style="text-align: center;">
-                            <i class="fas fa-trash" ng-click="deleteProduct($index)"></i>
+                            <i class="fas fa-trash" ng-click="deleteProductPopUp($event, $index)"></i>
                             <!-- <md-icon md-svg-src="/home/Perforce/Marcin_Marcin_7490/websites/koiosmasterdata_com/v1/images/icons/ic_delete_black_24px.svg"></md-icon> !-->
                         </div>
                     </div>

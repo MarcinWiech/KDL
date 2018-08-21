@@ -9,7 +9,7 @@ angular.module('myApp.newShipment', ['ngRoute'])
         });
     }])
     //-------THIS CONTROLLER IS USED SOLELY BY newShipment.html AND COMMUNICATES WITH editConsignment.js ONLY------
-    .controller('newShipmentCtrl', ['$scope', '$mdToast', function($scope, $mdToast) {
+    .controller('newShipmentCtrl', ['$scope', '$mdToast', '$mdDialog', function($scope, $mdToast, $mdDialog) {
 
         $scope.deleteConsignment = function(index) {
             $scope.consignments.splice(index, 1);
@@ -77,6 +77,7 @@ angular.module('myApp.newShipment', ['ngRoute'])
             window.localStorage.setItem('newShipmentConsignments',JSON.stringify(consignments));
         };
 
+        //different $scope variable than myConsignments
         $scope.getConsignments = JSON.parse(window.localStorage.getItem('newShipmentConsignments'));
 
         $scope.showProductSerialNumbers = function(product){
@@ -102,30 +103,27 @@ angular.module('myApp.newShipment', ['ngRoute'])
         };
 
 
+        //when deleting a product request user to confirm
         $scope.deleteProductPopUp = function(ev, index) {
             // Appending dialog to document.body to cover sidenav in docs app
-            var confirm = $mdDialog.confirm()
-                .title('Are you sure you want to delete?')
-                .textContent('You cannot undo this action once you confirm')
-                .targetEvent(ev)
-                .ok('Confirm delete')
-                .cancel('Cancel');
-
-            $mdDialog.show(confirm, index).then(function() {
+            $mdDialog.show($scope.showPopUp(ev), index).then(function() {
                 $scope.products.splice(index, 1);
             });
         };
 
-        $scope.deleteConsignmentPopUp = function(ev, index) {
-            // Appending dialog to document.body to cover sidenav in docs app
-            var confirm = $mdDialog.confirm()
+        $scope.showPopUp = function(ev){
+            return confirm = $mdDialog.confirm()
                 .title('Are you sure you want to delete?')
                 .textContent('You cannot undo this action once you confirm')
                 .targetEvent(ev)
                 .ok('Confirm delete')
                 .cancel('Cancel');
+        };
 
-            $mdDialog.show(confirm, index).then(function() {
+        //when deleting a consignment request user to confirm
+        $scope.deleteConsignmentPopUp = function(ev, index) {
+            // Appending dialog to document.body to cover sidenav in docs app
+            $mdDialog.show($scope.showPopUp(ev), index).then(function() {
                 $scope.getConsignments.splice(index, 1);
                 $scope.saveConsignments($scope.getConsignments);
             });
