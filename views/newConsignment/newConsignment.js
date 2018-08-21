@@ -9,7 +9,7 @@ angular.module('myApp.newConsignment', ['ngRoute'])
         });
     }])
 
-    .controller('newConsignmentCtrl', ['$scope', '$mdToast', '$mdDialog', function($scope, $mdToast, $mdDialog) {
+    .controller('newConsignmentCtrl', ['$scope', '$mdToast', '$mdDialog', '$location', function($scope, $mdToast, $mdDialog, $location) {
 
         //the array of the products in the current (new) consignment
         $scope.products = [];
@@ -113,4 +113,22 @@ angular.module('myApp.newConsignment', ['ngRoute'])
             window.localStorage.setItem('editedConsignment',JSON.stringify($scope.getConsignments[index]));
             window.localStorage.setItem('originPage', originPage)
         };
+
+        $scope.addConsignmentToShipment = function(index){
+
+            $scope.NewShipmentConsignments = JSON.parse(window.localStorage.getItem('newShipmentConsignments'));
+            if ($scope.NewShipmentConsignments !== null) {
+                $scope.NewShipmentConsignments.push($scope.getConsignments[index]);
+                window.localStorage.setItem('newShipmentConsignments',JSON.stringify($scope.NewShipmentConsignments));
+            }
+
+            else {
+                window.localStorage.setItem('newShipmentConsignments',JSON.stringify($scope.getConsignments[index]));
+            }
+
+            $scope.getConsignments.splice(index, 1);
+            $scope.saveConsignments($scope.getConsignments);
+            $location.path('/newShipment')
+        };
+
     }]);

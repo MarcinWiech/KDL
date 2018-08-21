@@ -5,7 +5,7 @@
         <h1>New shipment</h1>
     </div>
 
-    <div layout="row" layout-padding="" layout-wrap="" layout-margin="" ng-cloak="" layout-align="space-around" style="margin: auto">
+    <div layout="column" layout-padding="" layout-wrap="" layout-margin="" ng-cloak="" layout-align="space-around" style="margin: auto">
         <!-- these are proper consignments -->
         <div ng-repeat="consignment in getConsignments">
             <div layout="column" class="post" md-whiteframe="{{ctrl.elevation}}" style="padding-left: 20px; margin:auto;">
@@ -74,9 +74,6 @@
                         <div class="centreButton">
                             <md-button class="md-raised" style="background-color: grey">History</md-button>
                         </div>
-                        <div class="centreButton">
-                            <md-button class="md-raised" style="background-color: grey">Start shipment</md-button>
-                        </div>
                         <div class="centreButton">                 <!-- previousPage(newShipment) -->
                             <md-button class="md-raised" ng-click="setEditConsignment($index, 'newShipment')" ng-href="#!/editConsignment" aria-label>
                                 <i class="fas fa-pen"></i>
@@ -92,9 +89,15 @@
             </div>
         </div>
 
-        <!-- Consignment divs !-->
-        <div class="post" md-whiteframe="{{ctrl.elevation}}" style="padding-left: 20px;">
+        <div class="centreButton">
+            <md-button class="md-fab md-primary" ng-click="showNewConsignment()" ng-show="!canShowNewConsignment">
+                <md-icon md-svg-src="img/icons/cake.svg"></md-icon>
+            </md-button>
+        </div>
 
+        <!-- new Consignment divs !-->
+        <div class="post" md-whiteframe="{{ctrl.elevation}}" style="padding-left: 20px;" ng-show="canShowNewConsignment">
+            
             <div flex="100"  style="text-align: center; vertical-align: middle;">
                 <h2><b>Consignment</b></h2>
             </div>
@@ -183,7 +186,7 @@
                 </div>
             </div>
             <div flex="20" layout="row" style="display: flex;padding-top: 20px;float:right;">
-                <md-button class="md-raised" ng-disabled="products.length == 0" ng-click="addConsignment()">Add</md-button>
+                <md-button class="md-raised" ng-disabled="products.length == 0" ng-click="addConsignment(); showNewConsignment()">Add</md-button>
             </div>
         </div>
     </div>

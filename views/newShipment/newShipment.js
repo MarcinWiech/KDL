@@ -25,6 +25,13 @@ angular.module('myApp.newShipment', ['ngRoute'])
                     .hideDelay(2000)
             );
         };
+
+        $scope.canShowNewConsignment = false;
+
+        $scope.showNewConsignment = function() {
+            $scope.canShowNewConsignment = !$scope.canShowNewConsignment;
+        };
+
         //----------------------------------COPIED FROM NEW CONSIGNMENT START------------------------------------------//
         $scope.products = [];
 
@@ -55,6 +62,8 @@ angular.module('myApp.newShipment', ['ngRoute'])
             $scope.products[index].showSerialNumbers = !$scope.products[index].showSerialNumbers;
         };
 
+        //different $scope variable than myConsignments
+        $scope.getConsignments = JSON.parse(window.localStorage.getItem('newShipmentConsignments'));
 
         $scope.consignments = [];
 
@@ -78,8 +87,6 @@ angular.module('myApp.newShipment', ['ngRoute'])
             window.localStorage.setItem('newShipmentConsignments',JSON.stringify(consignments));
         };
 
-        //different $scope variable than myConsignments
-        $scope.getConsignments = JSON.parse(window.localStorage.getItem('newShipmentConsignments'));
 
         $scope.showProductSerialNumbers = function(product){
             product.showSerialNumbers = !product.showSerialNumbers;
