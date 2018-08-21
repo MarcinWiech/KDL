@@ -7,7 +7,7 @@
 
     <div layout="column" layout-padding="" layout-wrap="" layout-margin="" ng-cloak="" layout-align="space-around" style="margin: auto">
         <!-- these are proper consignments -->
-        <div ng-repeat="consignment in getConsignments">
+        <div ng-repeat="consignment in getConsignments track by $index">
             <div layout="column" class="post" md-whiteframe="{{ctrl.elevation}}" style="padding-left: 20px; margin:auto;">
                 <div style="text-align: center; vertical-align: middle;">
                     <h2><b>Consignment number {{$index}}</b></h2> <!-- {{consignment.products}} -->
@@ -97,7 +97,7 @@
 
         <!-- new Consignment divs !-->
         <div class="post" md-whiteframe="{{ctrl.elevation}}" style="padding-left: 20px;" ng-show="canShowNewConsignment">
-            
+
             <div flex="100"  style="text-align: center; vertical-align: middle;">
                 <h2><b>Consignment</b></h2>
             </div>
