@@ -58,8 +58,8 @@
                         </md-button>
                     </div>
                     <div flex="10" class="cell" style="text-align: center;">
-                        <i class="fas fa-trash" ng-click="deleteProduct($index)"></i>
-                        <!-- <md-icon md-svg-src="/home/Perforce/Marcin_Marcin_7490/websites/koiosmasterdata_com/v1/images/icons/ic_delete_black_24px.svg"></md-icon> !-->
+                        <i class="fas fa-trash" ng-click="deleteProductPopUp($event, $index)"></i> <!-- ng-click="deleteProduct($index)" -->
+                        <!-- <md-icon md-svg-src="/home/Perforce/Marcin_Marcin_7490/websites/koiosmasterdata_com/v1/images/icons/ic_delete_black_24px.svg"></md-icon> -->
                     </div>
                 </div>
                 <div ng-show = products[$index].showSerialNumbers layout="column">

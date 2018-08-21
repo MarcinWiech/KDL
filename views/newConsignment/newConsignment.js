@@ -9,7 +9,7 @@ angular.module('myApp.newConsignment', ['ngRoute'])
         });
     }])
 
-    .controller('newConsignmentCtrl', ['$scope', '$mdToast', function($scope, $mdToast) {
+    .controller('newConsignmentCtrl', ['$scope', '$mdToast', '$mdDialog', function($scope, $mdToast, $mdDialog) {
 
         //adding products to the consignment
 
@@ -112,6 +112,20 @@ angular.module('myApp.newConsignment', ['ngRoute'])
                     .position('top right')
                     .hideDelay(2000)
             );
+        };
+
+        $scope.deleteProductPopUp = function(ev, index) {
+            // Appending dialog to document.body to cover sidenav in docs app
+            var confirm = $mdDialog.confirm()
+                .title('Are you sure you want to delete?')
+                .textContent('You cannot undo this action once you confirm')
+                .targetEvent(ev)
+                .ok('Confirm delete')
+                .cancel('Cancel');
+
+            $mdDialog.show(confirm, index).then(function() {
+                $scope.products.splice(index, 1);
+            });
         };
 
     }]);
