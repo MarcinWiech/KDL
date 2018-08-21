@@ -74,10 +74,10 @@ angular.module('myApp.newShipment', ['ngRoute'])
 
         //save consignments to the local memory
         $scope.saveConsignments = function(consignments){
-            window.localStorage.setItem('creatingShipmentConsignments',JSON.stringify(consignments));
+            window.localStorage.setItem('newShipmentConsignments',JSON.stringify(consignments));
         };
 
-        $scope.getConsignments = JSON.parse(window.localStorage.getItem('creatingShipmentConsignments'));
+        $scope.getConsignments = JSON.parse(window.localStorage.getItem('newShipmentConsignments'));
 
         $scope.showProductSerialNumbers = function(product){
             product.showSerialNumbers = !product.showSerialNumbers;
@@ -99,6 +99,36 @@ angular.module('myApp.newShipment', ['ngRoute'])
             window.localStorage.setItem('editedConsignmentIndex',index);
             window.localStorage.setItem('editedConsignment',JSON.stringify($scope.getConsignments[index]));
             window.localStorage.setItem('originPage', originPage);
+        };
+
+
+        $scope.deleteProductPopUp = function(ev, index) {
+            // Appending dialog to document.body to cover sidenav in docs app
+            var confirm = $mdDialog.confirm()
+                .title('Are you sure you want to delete?')
+                .textContent('You cannot undo this action once you confirm')
+                .targetEvent(ev)
+                .ok('Confirm delete')
+                .cancel('Cancel');
+
+            $mdDialog.show(confirm, index).then(function() {
+                $scope.products.splice(index, 1);
+            });
+        };
+
+        $scope.deleteConsignmentPopUp = function(ev, index) {
+            // Appending dialog to document.body to cover sidenav in docs app
+            var confirm = $mdDialog.confirm()
+                .title('Are you sure you want to delete?')
+                .textContent('You cannot undo this action once you confirm')
+                .targetEvent(ev)
+                .ok('Confirm delete')
+                .cancel('Cancel');
+
+            $mdDialog.show(confirm, index).then(function() {
+                $scope.getConsignments.splice(index, 1);
+                $scope.saveConsignments($scope.getConsignments);
+            });
         };
 
         //----------------------------------FROM NEW CONSIGNMENT END------------------------------------------//

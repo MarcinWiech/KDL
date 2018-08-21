@@ -11,10 +11,10 @@ angular.module('myApp.newConsignment', ['ngRoute'])
 
     .controller('newConsignmentCtrl', ['$scope', '$mdToast', '$mdDialog', function($scope, $mdToast, $mdDialog) {
 
-        //adding products to the consignment
-
+        //the array of the products in the current (new) consignment
         $scope.products = [];
 
+        //adding products to the consignment
         $scope.addProduct = function() {
 
             $scope.serialNumbersArray = [];
@@ -33,15 +33,30 @@ angular.module('myApp.newConsignment', ['ngRoute'])
             $scope.batchNumber = '';
         };
 
-        $scope.deleteProduct = function(index) {
-            $scope.products.splice(index, 1);
+        //when deleting a product request user to confirm
+        $scope.deleteProductPopUp = function(ev, index) {
+            // Appending dialog to document.body to cover sidenav in docs app
+            $mdDialog.show($scope.showPopUp(ev), index).then(function() {
+                $scope.products.splice(index, 1);
+            });
         };
+
+        $scope.showPopUp = function(ev){
+            return confirm = $mdDialog.confirm()
+                .title('Are you sure you want to delete?')
+                .textContent('You cannot undo this action once you confirm')
+                .targetEvent(ev)
+                .ok('Confirm delete')
+                .cancel('Cancel');
+        }
 
 
         $scope.showHideSerialNumbers = function(index){
             $scope.products[index].showSerialNumbers = !$scope.products[index].showSerialNumbers;
         };
 
+        //myConsignments.html
+        $scope.getConsignments = JSON.parse(window.localStorage.getItem('myConsignmentsConsignments'));
 
         $scope.consignments = [];
 
@@ -62,24 +77,21 @@ angular.module('myApp.newConsignment', ['ngRoute'])
 
         //save consignments to the local memory
         $scope.saveConsignments = function(consignments){
-            window.localStorage.setItem('consignmentsStorage',JSON.stringify(consignments));
+            window.localStorage.setItem('myConsignmentsConsignments',JSON.stringify(consignments));
         };
 
-        $scope.getConsignments = JSON.parse(window.localStorage.getItem('consignmentsStorage'));
+        //when deleting a consignment request user to confirm
+        $scope.deleteConsignmentPopUp = function(ev, index) {
+            // Appending dialog to document.body to cover sidenav in docs app
+            $mdDialog.show($scope.showPopUp(ev), index).then(function() {
+                $scope.getConsignments.splice(index, 1);
+                $scope.saveConsignments($scope.getConsignments);
+            });
+        };
 
         $scope.showProductSerialNumbers = function(product){
             product.showSerialNumbers = !product.showSerialNumbers;
         };
-
-        /*$scope.deleteConsignment = function(consignment){
-
-            $scope.index = $scope.getConsignments.indexOf(consignment);
-            if ($scope.index > -1) {
-                $scope.currentConsignments = $scope.getConsignments;
-                $scope.currentConsignments.splice($scope.index, 1);
-                $scope.saveConsignments($scope.currentConsignments);
-            }
-        };*/
 
         $scope.setEditConsignment = function(index, originPage){
 
@@ -87,6 +99,7 @@ angular.module('myApp.newConsignment', ['ngRoute'])
             window.localStorage.setItem('editedConsignment',JSON.stringify($scope.getConsignments[index]));
             window.localStorage.setItem('originPage', originPage)
         };
+
 
         $scope.downloadFile = function(downloadPath) {
             window.open(downloadPath);
@@ -102,8 +115,6 @@ angular.module('myApp.newConsignment', ['ngRoute'])
             );
         };
 
-        //New Shipment methods
-
         $scope.finishShipmentToast = function() {
 
             $mdToast.show(
@@ -113,35 +124,4 @@ angular.module('myApp.newConsignment', ['ngRoute'])
                     .hideDelay(2000)
             );
         };
-
-        $scope.deleteProductPopUp = function(ev, index) {
-            // Appending dialog to document.body to cover sidenav in docs app
-            var confirm = $mdDialog.confirm()
-                .title('Are you sure you want to delete?')
-                .textContent('You cannot undo this action once you confirm')
-                .targetEvent(ev)
-                .ok('Confirm delete')
-                .cancel('Cancel');
-
-            $mdDialog.show(confirm, index).then(function() {
-                $scope.products.splice(index, 1);
-            });
-        };
-
-        $scope.deleteConsignmentPopUp = function(ev, index) {
-            // Appending dialog to document.body to cover sidenav in docs app
-            var confirm = $mdDialog.confirm()
-                .title('Are you sure you want to delete?')
-                .textContent('You cannot undo this action once you confirm')
-                .targetEvent(ev)
-                .ok('Confirm delete')
-                .cancel('Cancel');
-
-            $mdDialog.show(confirm, index).then(function() {
-                $scope.getConsignments.splice(index, 1);
-                $scope.saveConsignments($scope.getConsignments);
-            });
-
-        };
-
     }]);

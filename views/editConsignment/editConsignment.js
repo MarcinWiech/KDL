@@ -8,7 +8,7 @@ angular.module('myApp.editConsignment', ['ngRoute'])
             controller: 'editConsignmentCtrl'
         });
     }])
-    //---------THIS CONTROLLER COMMUNICATES WITH BOTH newShipment.js and myConsignments.js
+    //---------THIS CONTROLLER COMMUNICATES WITH BOTH newShipment.js and myConsignments.js----//
     .controller('editConsignmentCtrl', ['$scope', function($scope) {
 
         $scope.editProducts = JSON.parse(window.localStorage.getItem('editedConsignment'));
@@ -41,11 +41,11 @@ angular.module('myApp.editConsignment', ['ngRoute'])
         $scope.saveConsignments = function(consignments){
 
             if($scope.originPage === 'myConsignments'){
-                window.localStorage.setItem('consignmentsStorage',JSON.stringify(consignments));
+                window.localStorage.setItem('myConsignmentsConsignments',JSON.stringify(consignments));
             }
 
             else if($scope.originPage === 'newShipment'){
-                window.localStorage.setItem('creatingShipmentConsignments',JSON.stringify(consignments));
+                window.localStorage.setItem('newShipmentConsignments',JSON.stringify(consignments));
             }
         };
 
@@ -55,11 +55,11 @@ angular.module('myApp.editConsignment', ['ngRoute'])
 
 
             if($scope.originPage === 'myConsignments'){
-                $scope.getConsignments = JSON.parse(window.localStorage.getItem('consignmentsStorage'));
+                $scope.getConsignments = JSON.parse(window.localStorage.getItem('myConsignmentsConsignments'));
             }
 
             else if($scope.originPage === 'newShipment'){
-                $scope.getConsignments = JSON.parse(window.localStorage.getItem('creatingShipmentConsignments'));
+                $scope.getConsignments = JSON.parse(window.localStorage.getItem('newShipmentConsignments'));
             }
         };
 
