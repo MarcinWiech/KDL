@@ -71,8 +71,7 @@ angular.module('myApp.newConsignment', ['ngRoute'])
             product.showSerialNumbers = !product.showSerialNumbers;
         };
 
-
-        $scope.removeConsignment = function(consignment){
+        /*$scope.deleteConsignment = function(consignment){
 
             $scope.index = $scope.getConsignments.indexOf(consignment);
             if ($scope.index > -1) {
@@ -80,7 +79,7 @@ angular.module('myApp.newConsignment', ['ngRoute'])
                 $scope.currentConsignments.splice($scope.index, 1);
                 $scope.saveConsignments($scope.currentConsignments);
             }
-        };
+        };*/
 
         $scope.getEditConsignment = function(index){
 
@@ -126,6 +125,22 @@ angular.module('myApp.newConsignment', ['ngRoute'])
             $mdDialog.show(confirm, index).then(function() {
                 $scope.products.splice(index, 1);
             });
+        };
+
+        $scope.deleteConsignmentPopUp = function(ev, index) {
+            // Appending dialog to document.body to cover sidenav in docs app
+            var confirm = $mdDialog.confirm()
+                .title('Are you sure you want to delete?')
+                .textContent('You cannot undo this action once you confirm')
+                .targetEvent(ev)
+                .ok('Confirm delete')
+                .cancel('Cancel');
+
+            $mdDialog.show(confirm, index).then(function() {
+                $scope.getConsignments.splice(index, 1);
+                $scope.saveConsignments($scope.getConsignments);
+            });
+
         };
 
     }]);

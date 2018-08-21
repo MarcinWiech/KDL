@@ -53,5 +53,4 @@ angular.module('myApp.editConsignment', ['ngRoute'])
             $scope.saveConsignments($scope.getConsignments);
         }; //watch out for indexing issues
 
-
     }]);
