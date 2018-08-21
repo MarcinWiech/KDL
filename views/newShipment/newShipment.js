@@ -1,3 +1,4 @@
+
 'use strict';
 
 angular.module('myApp.newShipment', ['ngRoute'])
@@ -9,7 +10,7 @@ angular.module('myApp.newShipment', ['ngRoute'])
         });
     }])
     //-------THIS CONTROLLER IS USED SOLELY BY newShipment.html AND COMMUNICATES WITH editConsignment.js ONLY------
-    .controller('newShipmentCtrl', ['$scope', '$mdToast', '$mdDialog', function($scope, $mdToast, $mdDialog) {
+    .controller('newShipmentCtrl', ['$scope', '$mdToast', '$mdDialog', '$rootScope', '$location', '$route', function($scope, $mdToast, $mdDialog, $rootScope, $location, $route) {
 
         $scope.deleteConsignment = function(index) {
             $scope.consignments.splice(index, 1);
@@ -131,20 +132,31 @@ angular.module('myApp.newShipment', ['ngRoute'])
 
         //----------------------------------FROM NEW CONSIGNMENT END------------------------------------------//
 
-        $scope.shipments = [];
+        //whenever the same controller is used somewhere else it sets shipments to an empty array. This prevented rootScope from working
+        if ($route.current.$$route.originalPath === '/newShipment') {
+            $rootScope.shipments = [];
 
-        $scope.addShipment = function() {
+            $rootScope.test = "34";
 
-            if($scope.getConsignments.length !== 0){
+            $scope.addShipment = function () {
 
-                $scope.shipments.push({'consignments': $scope.getConsignments});
-                $scope.saveConsignments([]);
-            }
+                if ($scope.getConsignments.length !== 0) {
+
+                    $rootScope.shipments.push({'consignments': $scope.getConsignments, 'ALEI': ''});
+                    $scope.saveConsignments([]);
+
+                    $location.path('/changeOfCustody');
+                }
+            };
+
+            $scope.finishShipmentToast = function () {
+
+                $mdToast.show(
+                    $mdToast.simple()
+                        .textContent('Shipment added to my shipments')
+                        .position('top right')
+                        .hideDelay(2000)
+                );
+            };
         }
-
-
-
-
-
-
     }]);

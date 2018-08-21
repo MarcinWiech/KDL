@@ -107,16 +107,6 @@ angular.module('myApp.newConsignment', ['ngRoute'])
             );
         };
 
-        $scope.finishShipmentToast = function() {
-
-            $mdToast.show(
-                $mdToast.simple()
-                    .textContent('Shipment added to my shipments')
-                    .position('top right')
-                    .hideDelay(2000)
-            );
-        };
-
         $scope.setEditConsignment = function(index, originPage){
 
             window.localStorage.setItem('editedConsignmentIndex',index);

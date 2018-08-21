@@ -93,7 +93,7 @@
         </div>
 
         <!-- Consignment divs !-->
-        <div class="post" md-whiteframe="{{ctrl.elevation}}" style="padding-left: 20px;" ng-show="true">
+        <div class="post" md-whiteframe="{{ctrl.elevation}}" style="padding-left: 20px;">
 
             <div flex="100"  style="text-align: center; vertical-align: middle;">
                 <h2><b>Consignment</b></h2>
@@ -188,6 +188,6 @@
         </div>
     </div>
     <div style="float: right;" layout-margin="">
-        <md-button class="md-raised" ng-href="#!/changeOfCustody" ng-disabled="getConsignments.length == 0" ng-click="addShipment()">Next</md-button>
+        <md-button class="md-raised" ng-disabled="getConsignments.length == 0" ng-click="addShipment()">Next</md-button>
     </div>
 </div>
