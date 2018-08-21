@@ -81,10 +81,11 @@ angular.module('myApp.newConsignment', ['ngRoute'])
             }
         };*/
 
-        $scope.getEditConsignment = function(index){
+        $scope.setEditConsignment = function(index, originPage){
 
             window.localStorage.setItem('editedConsignmentIndex',index);
             window.localStorage.setItem('editedConsignment',JSON.stringify($scope.getConsignments[index]));
+            window.localStorage.setItem('originPage', originPage)
         };
 
         $scope.downloadFile = function(downloadPath) {

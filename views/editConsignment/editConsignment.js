@@ -8,12 +8,14 @@ angular.module('myApp.editConsignment', ['ngRoute'])
             controller: 'editConsignmentCtrl'
         });
     }])
-
+    //---------THIS CONTROLLER COMMUNICATES WITH BOTH newShipment.js and myConsignments.js
     .controller('editConsignmentCtrl', ['$scope', function($scope) {
 
         $scope.editProducts = JSON.parse(window.localStorage.getItem('editedConsignment'));
 
         $scope.addProductToEdit = function() {
+
+            $scope.setGetConsignments();
 
             $scope.serialNumbersArray = [];
             $scope.showSerialNumbers = false;
@@ -37,10 +39,29 @@ angular.module('myApp.editConsignment', ['ngRoute'])
         };
 
         $scope.saveConsignments = function(consignments){
-            window.localStorage.setItem('consignmentsStorage',JSON.stringify(consignments));
+
+            if($scope.originPage === 'myConsignments'){
+                window.localStorage.setItem('consignmentsStorage',JSON.stringify(consignments));
+            }
+
+            else if($scope.originPage === 'newShipment'){
+                window.localStorage.setItem('creatingShipmentConsignments',JSON.stringify(consignments));
+            }
         };
 
-        $scope.getConsignments = JSON.parse(window.localStorage.getItem('consignmentsStorage'));
+        $scope.originPage = window.localStorage.getItem('originPage');
+        //depending on the origin page (that is either myConsignments or newShipment) different local storages must be used
+        $scope.setGetConsignments = function(){
+
+
+            if($scope.originPage === 'myConsignments'){
+                $scope.getConsignments = JSON.parse(window.localStorage.getItem('consignmentsStorage'));
+            }
+
+            else if($scope.originPage === 'newShipment'){
+                $scope.getConsignments = JSON.parse(window.localStorage.getItem('creatingShipmentConsignments'));
+            }
+        };
 
         $scope.consignmentIndex = window.localStorage.getItem('editedConsignmentIndex');
 
@@ -52,5 +73,9 @@ angular.module('myApp.editConsignment', ['ngRoute'])
             //save consignments to the local memory
             $scope.saveConsignments($scope.getConsignments);
         }; //watch out for indexing issues
+
+        $scope.doTheBack = function() {
+            window.history.back();
+        };
 
     }]);
