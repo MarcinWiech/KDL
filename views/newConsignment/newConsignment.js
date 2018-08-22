@@ -136,7 +136,13 @@ angular.module('myApp.newConsignment', ['ngRoute'])
 
             $scope.getConsignments.splice(index, 1);
             $scope.saveConsignments($scope.getConsignments);
-            $location.path('/newShipment')
+
+            $mdToast.show(
+                $mdToast.simple()
+                    .textContent('Consignment added to new shipment')
+                    .position('top right')
+                    .hideDelay(2000)
+            );
         };
 
     }]);

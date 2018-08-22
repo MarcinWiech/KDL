@@ -22,7 +22,7 @@ angular.module('myApp.editConsignment', ['ngRoute'])
 
             for (var i = 0; i <$scope.nOI; i++){
 
-                $scope.serialNumbersArray.push({'serialNumber': ''});
+                $scope.serialNumbersArray.push('');
 
             }
 

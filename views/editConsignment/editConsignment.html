@@ -61,9 +61,9 @@
                     </div>
                 </div>
                 <div ng-show = product.showSerialNumbers layout="column">
-                    <md-input-container ng-repeat= "serialNumber in product.serialNumbers" style="margin-left: 10%; width:70%; padding: 0px 0; margin-bottom: 0px;">
+                    <md-input-container ng-repeat= "serialNumber in product.serialNumbers track by $index" style="margin-left: 10%; width:70%; padding: 0px 0; margin-bottom: 0px;">
                         <label>Serial Number</label>
-                        <input name="inputSerialNumber" ng-model="serialNumber">
+                        <input ng-model="product.serialNumbers[$index]">
                     </md-input-container>
                 </div>
             </div>
