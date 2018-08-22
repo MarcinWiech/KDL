@@ -31,7 +31,8 @@
                     </div>
                 </div>
                 <!-- Consignments from the consignment array -->
-                <div layout="column" ng-repeat="product in consignment.products">
+                <!-- before without track by $index-->
+                <div layout="column" ng-repeat="product in consignment.products track by $index">
                     <div flex="100"layout="row">
                         <div flex="5" class="cell">
                             {{$index + 1}}
@@ -52,8 +53,9 @@
                         </div>
                     </div>
                     <div ng-show = product.showSerialNumbers layout="column">
-                        <div ng-repeat= "serialNumber in product.serialNumbers" style="margin-left: 10%; width:70%; padding: 0px 0; margin-bottom: 0px;">
-                            #{{$index + 1}}:  {{serialNumber.serialNumber}}
+                        <!-- before without track by $index-->
+                        <div ng-repeat= "serialNumber in product.serialNumbers track by $index" style="margin-left: 10%; width:70%; padding: 0px 0; margin-bottom: 0px;">
+                            #{{$index + 1}}:  {{serialNumber}}
                         </div>
                     </div>
 
@@ -148,10 +150,13 @@
                             <!-- <md-icon md-svg-src="/home/Perforce/Marcin_Marcin_7490/websites/koiosmasterdata_com/v1/images/icons/ic_delete_black_24px.svg"></md-icon> !-->
                         </div>
                     </div>
-                    <div ng-show = products[$index].showSerialNumbers layout="column">
-                        <md-input-container ng-repeat= "serialNumber in products[$index].serialNumbers" style="margin-left: 10%; width:70%; padding: 0px 0; margin-bottom: 0px;">
+                    <!-- before ng-show="products[$index].showSerialNumbers -->
+                    <div ng-show = product.showSerialNumbers layout="column">
+                        <!-- serialNumber in products[$index].serialNumbers -->
+                        <md-input-container ng-repeat= "serialNumber in product.serialNumbers track by $index" style="margin-left: 10%; width:70%; padding: 0px 0; margin-bottom: 0px;">
                             <label>Serial Number</label>
-                            <input name="inputSerialNumber" ng-model="serialNumber.serialNumber">
+                            <!-- ng-model serialNumber.serialNumber-->
+                            <input ng-model="product.serialNumbers[$index]">
                         </md-input-container>
                     </div>
                 </div>
@@ -191,6 +196,6 @@
         </div>
     </div>
     <div style="float: right;" layout-margin="">
-        <md-button class="md-raised" ng-disabled="getConsignments.length == 0" ng-click="addShipment()">Next</md-button>
+        <md-button class="md-raised" ng-disabled="getConsignments.length == 0" ng-click="addTemporaryCreatedShipment()">Next</md-button>
     </div>
 </div>

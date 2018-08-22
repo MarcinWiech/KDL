@@ -1,8 +1,9 @@
 <link rel="stylesheet" href="views/myShipments/myShipments.css">
 
-<div>
+<div ng-app="myApp.myShipments" ng-controller="myShipmentsCtrl">
     <h1>My shipments</h1>
-
+    {{shipments.length}}
+    {{savedShipments}}
     <div layout="row" layout-padding="" layout-wrap="" layout-margin="" ng-cloak="" layout-align="space-around">
 
         <!-- Consignment divs !-->

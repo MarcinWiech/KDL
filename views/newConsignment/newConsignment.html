@@ -62,10 +62,10 @@
                         <!-- <md-icon md-svg-src="/home/Perforce/Marcin_Marcin_7490/websites/koiosmasterdata_com/v1/images/icons/ic_delete_black_24px.svg"></md-icon> -->
                     </div>
                 </div>
-                <div ng-show = products[$index].showSerialNumbers layout="column">
-                    <md-input-container ng-repeat= "serialNumber in products[$index].serialNumbers" style="margin-left: 10%; width:70%; padding: 0px 0; margin-bottom: 0px;">
+                <div ng-show = product.showSerialNumbers layout="column">
+                    <md-input-container ng-repeat= "serialNumber in product.serialNumbers track by $index" style="margin-left: 10%; width:70%; padding: 0px 0; margin-bottom: 0px;">
                         <label>Serial Number</label>
-                        <input name="inputSerialNumber" ng-model="serialNumber.serialNumber">
+                        <input ng-model="product.serialNumbers[$index]">
                     </md-input-container>
                 </div>
             </div>

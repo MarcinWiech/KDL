@@ -5,10 +5,10 @@ angular.module('myApp.myConsignments', ['ngRoute'])
     .config(['$routeProvider', function($routeProvider) {
         $routeProvider.when('/myConsignments', {
             templateUrl: 'views/myConsignments/myConsignments.html',
-            controller: 'View1Ctrl'
+            controller: 'myConsignmentsCtrl'
         });
     }])
 
-    .controller('View1Ctrl', [function() {
+    .controller('myConsignmentsCtrl', ['$scope', '$rootScope', function($scope, $rootScope) {
 
     }]);

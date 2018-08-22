@@ -35,7 +35,7 @@
                     </div>
                 </div>
                 <!-- Consignments from the consignment array -->
-                <div layout="column" ng-repeat="product in consignment.products">
+                <div layout="column" ng-repeat="product in consignment.products track by $index">
                     <div flex="100"layout="row">
                         <div flex="5" class="cell">
                             {{$index + 1}}
@@ -56,8 +56,8 @@
                         </div>
                     </div>
                     <div ng-show = product.showSerialNumbers layout="column">
-                        <div ng-repeat= "serialNumber in product.serialNumbers" style="margin-left: 10%; width:70%; padding: 0px 0; margin-bottom: 0px;">
-                            #{{$index + 1}}:  {{serialNumber.serialNumber}}
+                        <div ng-repeat= "serialNumber in product.serialNumbers track by $index" style="margin-left: 10%; width:70%; padding: 0px 0; margin-bottom: 0px;">
+                            #{{$index + 1}}:  {{serialNumber}}
                         </div>
                     </div>
 

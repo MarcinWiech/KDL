@@ -1,17 +1,16 @@
 <link rel="stylesheet" href="views/changeOfCustody/changeOfCustody.css">
 
 <div ng-app="myApp.changeOfCustody" ng-controller="changeOfCustodyCtrl">
-    {{shipments.length}}
     <div>
         <h1>Declare the change of Custody</h1>
     </div>
     <div>
         <md-input-container md-no-float="" class="md-block">
             <md-icon md-svg-src="images/baseline-business-24px.svg"></md-icon>
-            <input ng-model="user.phone" placeholder="receiver's ALEI number" type="text">
+            <input ng-model="alei" placeholder="receiver's ALEI number" type="text">
         </md-input-container>
     </div>
     <div style="float:right">
-        <md-button class="md-raised" ng-click="finishShipmentToast()" ng-href="#!/home">Finish</md-button>
+        <md-button class="md-raised" ng-click="addAleiToTemporaryCreatedShipment(); addShipment(); finishShipmentToast()" ng-href="#!/home">Finish</md-button>
     </div>
 </div>

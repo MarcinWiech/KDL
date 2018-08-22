@@ -42,7 +42,7 @@ angular.module('myApp.newShipment', ['ngRoute'])
 
             for (var i = 0; i <$scope.nOI; i++){
 
-                $scope.serialNumbersArray.push({'serialNumber': ''});
+                $scope.serialNumbersArray.push('');
 
             }
 
@@ -141,29 +141,33 @@ angular.module('myApp.newShipment', ['ngRoute'])
 
         //whenever the same controller is used somewhere else it sets shipments to an empty array. This prevented rootScope from working
         if ($route.current.$$route.originalPath === '/newShipment') {
-            $rootScope.shipments = [];
 
-            $rootScope.test = "34";
-
-            $scope.addShipment = function () {
-
-                if ($scope.getConsignments.length !== 0) {
-
-                    $rootScope.shipments.push({'consignments': $scope.getConsignments, 'ALEI': ''});
-                    $scope.saveConsignments([]);
-
-                    $location.path('/changeOfCustody');
-                }
+            $scope.id = function () {
+                // Math.random should be unique because of its seeding algorithm.
+                // Convert it to base 36 (numbers + letters), and grab the first 9 characters
+                // after the decimal.
+                return Math.random().toString(36).substr(2, 20);
             };
 
-            $scope.finishShipmentToast = function () {
+            $scope.addTemporaryCreatedShipment = function(){
+                window.localStorage.setItem('temporaryCreatedShipment',JSON.stringify({'consignments': $scope.getConsignments, 'ALEI': '', 'status': 'pending', 'id': $scope.id(), 'photo': '', 'history based on other objects': ''}));
 
-                $mdToast.show(
-                    $mdToast.simple()
-                        .textContent('Shipment added to my shipments')
-                        .position('top right')
-                        .hideDelay(2000)
-                );
-            };
+                //reset consignments by overriding them with an empty array
+                $scope.saveConsignments([]);
+                $location.path('/changeOfCustody');
+            }
         }
+
+        /*
+        //whenever the same controller is used somewhere else it sets shipments to an empty array. This prevented rootScope from working
+        if ($route.current.$$route.originalPath === '/newShipment') {
+
+            $scope.addTemporaryCreatedShipment = function(){
+                $rootScope.temporaryCreatedShipment = {'consignments': $scope.getConsignments, 'ALEI': ''};
+                //reset consignments by overriding them with an empty array
+                $scope.saveConsignments([]);
+                $location.path('/changeOfCustody');
+            }
+        }
+        */
     }]);

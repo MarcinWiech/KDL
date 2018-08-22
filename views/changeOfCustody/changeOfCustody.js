@@ -21,4 +21,35 @@ angular.module('myApp.changeOfCustody', ['ngRoute'])
             );
         };
 
+        //i need to test this
+        /*
+        $rootScope.addShipment = function () {
+
+            if($rootScope.shipments === undefined){
+                $rootScope.shipments = [];
+            }
+            $rootScope.shipments.push($rootScope.temporaryCreatedShipment);
+            $rootScope.temporaryCreatedShipment = null;
+        };
+        */
+        $scope.alei ='';
+        $scope.temporaryCreatedShipment = JSON.parse(window.localStorage.getItem('temporaryCreatedShipment'));
+
+        $scope.addAleiToTemporaryCreatedShipment = function(){
+            $scope.temporaryCreatedShipment.ALEI = $scope.alei;
+        }
+
+        $scope.addShipment = function () {
+
+            if('shipments' in localStorage){
+                $scope.shipments = JSON.parse(window.localStorage.getItem('shipments'));
+            }
+            else{
+                $scope.shipments = [];
+            }
+
+            $scope.shipments.push($scope.temporaryCreatedShipment);
+            window.localStorage.setItem('shipments', JSON.stringify($scope.shipments));
+            $rootScope.temporaryCreatedShipment = null;
+        };
     }]);
