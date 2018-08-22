@@ -170,4 +170,26 @@ angular.module('myApp.newShipment', ['ngRoute'])
             }
         }
         */
+        $scope.removeConsignmentFromShipment = function(index){
+
+            $scope.myConsignmentsConsignments = JSON.parse(window.localStorage.getItem('myConsignmentsConsignments'));
+            if ($scope.myConsignmentsConsignments !== null) {
+                $scope.myConsignmentsConsignments.push($scope.getConsignments[index]);
+                window.localStorage.setItem('myConsignmentsConsignments',JSON.stringify($scope.myConsignmentsConsignments));
+            }
+
+            else {
+                window.localStorage.setItem('myConsignmentsConsignments',JSON.stringify($scope.getConsignments[index]));
+            }
+
+            $scope.getConsignments.splice(index, 1);
+            $scope.saveConsignments($scope.getConsignments);
+
+            $mdToast.show(
+                $mdToast.simple()
+                    .textContent('Consignment moved to my consignments')
+                    .position('top right')
+                    .hideDelay(2000)
+            );
+        };
     }]);
