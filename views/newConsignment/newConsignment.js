@@ -56,6 +56,14 @@ angular.module('myApp.newConsignment', ['ngRoute'])
         };
 
         //myConsignments.html
+        $scope.showNoConsignmentsMessage = function(){
+            if($scope.getConsignments.length === 0){
+                return true;
+            }
+
+            return false;
+        };
+
         $scope.getConsignments = JSON.parse(window.localStorage.getItem('myConsignmentsConsignments'));
 
         $scope.consignments = [];

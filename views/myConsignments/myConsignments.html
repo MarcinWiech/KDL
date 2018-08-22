@@ -1,14 +1,18 @@
 
 <link rel="stylesheet" href="views/myConsignments/myConsignments.css">
 
-<div>
+<div ng-app="myApp.newConsignment" ng-controller="newConsignmentCtrl">
 
     <div>
         <h1>My consignments</h1>
     </div>
+    <div ng-show="showNoConsignmentsMessage()" class="centreButton" layout="column" style="margin-top: 50px;">
+        <h2>You have no consignments saved in "My consignments"</h2>
+        <md-button class="md-raised" ng-href="#!/newConsignment">Add new consignment</md-button>
+    </div>
 
 
-    <div layout="column" layout-padding="" layout-wrap="" layout-margin="" ng-cloak="" layout-align="space-around" style="margin: auto" ng-app="myApp.newConsignment" ng-controller="newConsignmentCtrl">
+    <div layout="column" layout-padding="" layout-wrap="" layout-margin="" ng-cloak="" layout-align="space-around" style="margin: auto">
 
         <!-- these are proper consignments -->
         <div ng-repeat="consignment in getConsignments">
