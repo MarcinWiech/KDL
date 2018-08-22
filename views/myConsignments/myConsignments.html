@@ -8,7 +8,6 @@
     </div>
     <div ng-show="showNoConsignmentsMessage()" class="centreButton" layout="column" style="margin-top: 50px;">
         <h2>You have no consignments saved in "My consignments"</h2>
-        <md-button class="md-raised" ng-href="#!/newConsignment">Add new consignment</md-button>
     </div>
 
 
@@ -99,5 +98,10 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="centreButton" layout="column">
+        <md-button class="md-fab md-primary" ng-href="#!/newConsignment">
+            <md-icon md-svg-src="images/baseline-add-24px.svg"></md-icon>
+        </md-button>
     </div>
 </div>

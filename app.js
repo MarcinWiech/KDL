@@ -20,7 +20,29 @@ var myApp = angular.module('MyApp', [
     'myApp.employeesInvolved',
     'myApp.consignmentScans',
     'myApp.editConsignment',
+    'myApp.companyDashboard',
+    'myApp.customsDashboard',
 ]);
+
+    myApp.controller('indexCtrl', function($rootScope, $scope, $location) {
+
+        $scope.CustomsView = false;
+
+        $scope.isCustomsView = function() {
+
+            $scope.CustomsView = !$scope.CustomsView
+
+            if($scope.CustomsView === true){
+                $location.path('/customsDashboard');
+            }
+            else {
+                $location.path('/companyDashboard');
+            }
+
+
+        };
+
+    });
 
     myApp.controller('sidenavCtrl', function($scope, $location) {
         $scope.selectedMenu = 'dashboard';
@@ -90,6 +112,12 @@ var myApp = angular.module('MyApp', [
             })
             .when('/views/editConsignment/editConsignment', {
                 templateUrl: '/editConsignment.html',
+            })
+            .when('/views/companyDashboard/companyDashboard', {
+                templateUrl: '/companyDashboard.html',
+            })
+            .when('/views/customsDashboard/customsDashboard', {
+                templateUrl: '/customsDashboard.html',
             })
             .otherwise({
             redirectTo: '/home'
