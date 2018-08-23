@@ -1,0 +1,21 @@
+div {
+    outline: 1px solid red;
+}
+
+.wrapper {
+    margin: auto;
+    width: 1500px;
+}
+
+th {
+    text-align: left;
+    outline: 1px solid black;
+}
+
+table {
+    outline: 1px solid black;
+}
+
+li {
+    font-size: larger;
+}
