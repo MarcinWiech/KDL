@@ -12,6 +12,6 @@ angular.module('myApp.myShipments', ['ngRoute'])
     .controller('myShipmentsCtrl', ['$scope', '$rootScope', function($scope, $rootScope){
 
 
-        $scope.savedShipments = JSON.parse(window.localStorage.getItem('shipments'));
+        $scope.getShipments = JSON.parse(window.localStorage.getItem('shipments'));
 
     }]);

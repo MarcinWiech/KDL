@@ -5,10 +5,9 @@
 </div>
 
 <div ng-app="myApp.myShipments" ng-controller="myShipmentsCtrl">
-
-    {{shipments.length}}
-    {{savedShipments}}
-    <div layout="row" layout-padding="" layout-wrap="" layout-margin="" ng-cloak="" layout-align="space-around">
+    {{getShipments}}
+    
+    <div layout="column" layout-padding="" layout-wrap="" layout-margin="" ng-cloak="" layout-align="space-around">
 
         <!-- Consignment divs !-->
         <div class="post" md-whiteframe="{{ctrl.elevation}}"  layout="row" layout-align="center">
@@ -39,5 +38,40 @@
                 </div>
             </div>
         </div>
+
+        <div ng-repeat="shipment in getShipments">
+            <div class="post" md-whiteframe="{{ctrl.elevation}}"  layout="row" layout-align="center">
+
+                <div flex="40" layout="center center">
+                    <img src="https://ptremovals.co.uk/wp-content/uploads/2016/02/short-packing-box.png"/>
+                </div>
+
+                <div flex="30" layout="column">
+                    <div class="conOpt" flex="25">
+                        <p>Custody Status: {{shipment.status}}</p>
+                    </div>
+                </div>
+
+                <div flex="30" layout="column">
+
+                    <div class="conOpt" flex="25">
+                        <p>Shipment ID: {{shipment.id}}</p>
+                    </div>
+                    <div class="conOpt" flex="25">
+                        <md-button class="md-raised" ng-href="#!/map">Visualise the route</md-button>
+                    </div>
+                    <div class="conOpt" flex="25">
+                        <md-button class="md-raised" style="background-color: grey">Add/Update the picture</md-button>
+                    </div>
+                    <div class="conOpt" flex="25">
+                        <md-button class="md-raised" flex style="display: flex; justify-content: center;" ng-href="#!/shipmentHistory">More</md-button>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+
     </div>
 </div>
