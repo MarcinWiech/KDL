@@ -4,7 +4,8 @@ div {
 
 .wrapper {
     margin: auto;
-    width: 1500px;
+    width: 100%;
+    margin-left: 250px;
 }
 
 th {
