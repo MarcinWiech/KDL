@@ -27,21 +27,22 @@
 <body ng-app="MyApp">
 
 <div layout="column" style="height:100%" ng-controller="indexCtrl">
-
+    {{customsView}}
     <div>
         <md-toolbar style="background-color: white; height: 80px; display: block; position: fixed" md-whiteframe="{{ctrl.elevation}}" layout="row">
 
             <img src="images/logo.png" style="float: left;margin-left: 45px;"/>
 
             <md-button class="md-raised" ng-click="isCustomsView()" style="display: block; float: right; margin-top: 20px; margin-right: 20px; width: auto;">
-                Go to {{CustomsView ? 'Company' : 'Customs'}} View
+                Go to {{customsView ? 'Company' : 'Customs'}} View {{customsView}}
             </md-button>
 
         </md-toolbar>
     </div>
     <div layout="row" style="height:100%;margin-top: 80px">
       <div class="sideNavLeft">
-        <md-sidenav class="md-sidenav-left" md-is-locked-open="true" style="height:100%;width: 250px; margin-left: 0; box-shadow: 0px 3px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 1px 10px 10px 0px rgba(0, 0, 0, 0.12)" md-whiteframe="{{ctrl.elevation}}" ng-show="!CustomsView">
+        <md-sidenav class="md-sidenav-left" md-is-locked-open="true" style="height:100%;width: 250px; margin-left: 0; box-shadow: 0px 3px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 1px 10px 10px 0px rgba(0, 0, 0, 0.12)" md-whiteframe="{{ctrl.elevation}}" ng-show="!customsView">
+            {{customsView}}
           <md-content>
             <md-list>
               <md-list-item ng-href="#!/home" class="goo">
@@ -74,7 +75,7 @@
             </md-list>
           </md-content>
         </md-sidenav>
-        <md-sidenav class="md-sidenav-left" md-is-locked-open="true" style="height:100%;width: 250px; margin-left: 0; box-shadow: 0px 3px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 1px 10px 10px 0px rgba(0, 0, 0, 0.12)" md-whiteframe="{{ctrl.elevation}}" ng-show="CustomsView">
+        <md-sidenav class="md-sidenav-left" md-is-locked-open="true" style="height:100%;width: 250px; margin-left: 0; box-shadow: 0px 3px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 1px 10px 10px 0px rgba(0, 0, 0, 0.12)" md-whiteframe="{{ctrl.elevation}}" ng-show="customsView">
             <md-content>
                 <md-list>
                     <md-list-item ng-href="#!/home" class="goo">
@@ -82,6 +83,15 @@
                     </md-list-item>
                     <md-list-item ng-href="#!/customsDashboard">
                         <p>Customs dashboard</p>
+                    </md-list-item>
+                    <md-list-item ng-href="#!/analyseEntity">
+                        <p>Analyse Entity</p>
+                    </md-list-item>
+                    <md-list-item ng-href="#!/analyseShipment">
+                        <p>Analyse Shipment</p>
+                    </md-list-item>
+                    <md-list-item ng-href="#!/analyseConsignment">
+                        <p>Analyse Consignment</p>
                     </md-list-item>
                 </md-list>
             </md-content>
@@ -118,6 +128,6 @@ Use of this source code is governed by an MIT-style license that can be foundin 
 <script src="views/employeesInvolved/employeesInvolved.js"></script>
 <script src="views/editConsignment/editConsignment.js"></script>
 <script src="views/companyDashboard/companyDashboard.js"></script>
-<script src="views/customs/javascript/customsDashboard.js"></script>
+<script src="views/customs/javascript/customs.js"></script>
 </body>
 </html>

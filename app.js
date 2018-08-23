@@ -20,56 +20,50 @@ var myApp = angular.module('MyApp', [
     'myApp.employeesInvolved',
     'myApp.consignmentScans',
     'myApp.editConsignment',
+    'myApp.customs',
     'myApp.companyDashboard',
-    'myApp.customsDashboard',
 ]);
 
-    myApp.controller('indexCtrl', function($rootScope, $scope, $location) {
+    myApp.controller('indexCtrl',[ '$scope','$rootScope','$location','$route', function($rootScope, $scope, $location, $route) {
 
-        $scope.CustomsView = false;
+        /*
+          //$scope.pathUrl = $route.current.$$route.originalPath;
+
+        if($scope.pathUrl === '/customsDashboard') {
+            $scope.customsView = false;
+        }
+        else {
+            $scope.customsView = true;
+        }
+         */
+
+        //refresh problem!!!!!!!!!!
+        if(!('customsView' in localStorage)) {
+            window.localStorage.setItem('customsView', false);
+        }
+        $scope.customsView = window.localStorage.getItem('customsView');
 
         $scope.isCustomsView = function() {
 
-            $scope.CustomsView = !$scope.CustomsView
 
-            if($scope.CustomsView === true){
+
+            $scope.customsView = !$scope.customsView;
+
+            if($scope.customsView === true){
                 $location.path('/customsDashboard');
             }
             else {
                 $location.path('/companyDashboard');
             }
-
-
+            window.localStorage.setItem('customsView', $scope.customsView);
         };
-
-    });
-
-    myApp.controller('sidenavCtrl', function($scope, $location) {
-        $scope.selectedMenu = 'dashboard';
-        $scope.collapseVar = 0;
-
-        $scope.check = function (x) {
-
-            if (x == $scope.collapseVar)
-                $scope.collapseVar = 0;
-            else
-                $scope.collapseVar = x;
-        };
-        $scope.multiCheck = function (y) {
-
-            if (y == $scope.multiCollapseVar)
-                $scope.multiCollapseVar = 0;
-            else
-                $scope.multiCollapseVar = y;
-        };
-    });
+    }]);
 
     myApp.config(["$routeProvider", function($routeProvider){
 
         $routeProvider
             .when('/home', {
                 templateUrl: 'views/home/home.html',
-                controller: 'sidenavCtrl'
             })
             .when('/views/newShipment/newShipment', {
                 templateUrl: '/newShipment.html',
