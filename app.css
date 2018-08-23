@@ -73,10 +73,6 @@ h1 {
   position: fixed;
   z-index: 2;
 }
-
-div {
-  outline: 1px solid red;
-}
 /*
 Copyright 2018 Google Inc. All Rights Reserved.
 Use of this source code is governed by an MIT-style license that can be foundin the LICENSE file at http://material.angularjs.org/HEAD/license.

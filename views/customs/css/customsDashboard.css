@@ -14,8 +14,15 @@ th {
 
 table {
     outline: 1px solid black;
+    table-layout: fixed ;
 }
 
 li {
     font-size: larger;
+    margin: 1em;
+}
+
+td {
+    text-align: center;
+    outline: 1px solid black;
 }
