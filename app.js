@@ -116,7 +116,7 @@ var myApp = angular.module('MyApp', [
             .when('/views/companyDashboard/companyDashboard', {
                 templateUrl: '/companyDashboard.html',
             })
-            .when('/views/customsDashboard/customsDashboard', {
+            .when('/views/customs/html/customsDashboard', {
                 templateUrl: '/customsDashboard.html',
             })
             .otherwise({
