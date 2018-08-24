@@ -48,3 +48,9 @@ tr:nth-child(odd) td { background: #FEFEFE; }
 
 tr td:hover { background: #666; color: #FFF; }
 /* Hover cell effect! */
+
+
+.robotoLightCondensed {
+    font-family: "Roboto Condensed", sans-serif;
+    font-weight: lighter !important;
+}

@@ -62,9 +62,6 @@ var myApp = angular.module('MyApp', [
     myApp.config(["$routeProvider", function($routeProvider){
 
         $routeProvider
-            .when('/home', {
-                templateUrl: 'views/home/home.html',
-            })
             .when('/views/newShipment/newShipment', {
                 templateUrl: '/newShipment.html',
             })
@@ -114,6 +111,6 @@ var myApp = angular.module('MyApp', [
                 templateUrl: '/customsDashboard.html',
             })
             .otherwise({
-            redirectTo: '/home'
+            redirectTo: '/customsDashboard'
         });
     }]);
