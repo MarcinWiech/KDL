@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="views/customs/css/customsDashboard.css">
 
 <div layout="column" class="wrapper" layout-padding="" layout-wrap="" layout-margin="" ng-cloak="" layout-align="space-around" style="margin: 0px;padding: 0px 0;">
-    <div class="robotoLightCondensed" layout="row" style="margin: 0px;padding: 0px 0; background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0.5)), url('images/maersk_boat.jpg'); background-size: 100%; background-position-y: center; height:300px;">
+    <div class="robotoLightCondensed" layout="row" style="margin: 0px;padding: 0px 0; background: linear-gradient(to bottom, rgba(36,36,36,0.8),rgba(102,102,102,0.5)), url('images/maersk_boat.jpg'); background-size: 100%; background-position-y: center; height:300px;">
         <div class="glossy" style="margin: 2%; width: 200px; height: 200px; outline: 1px solid white; margin-top: auto !important; margin-bottom: auto !important">
             <div style="margin: 3%">
                 <img src="images/Maersk_logo.png">
@@ -26,7 +26,7 @@
                     <span class="robotoLightCondensed" style="color:white; font-size:20px">Company risk factor</span>
                 </div>
                 <div flex="auto" style="margin:auto; margin-bottom:0px; margin-left: 5px !important;">
-                    <span class="robotoLightCondensed" style="color:white; font-size:40px;">6%</span>
+                    <span class="robotoLightCondensed" style="color:white; font-size:40px;">2.82%</span>
                 </div>
             </div>
             <div>
@@ -35,91 +35,170 @@
         </div>
     </div>
 
+    <!---------------------------------------------------------------------->
+    <div layout="row" style="width: 100%; margin: 0px; margin-top: 25px;    ">
+        <div flex="100" layout="row" style="margin-left: 1%  ">
+            <div flex="65">
+                <table style="float: left; text-align: left !important;">
+                    <tr>
+                        <td class="shipmentInforTR">Headquarters:</td>
+                        <td class="shipmentInforTR">Copenhagen</td>
+                    </tr>
+                    <tr>
+                        <td class="shipmentInforTR">Offices:</td>
+                        <td class="shipmentInforTR"> <a style="color: blue" href="">locations</a> </td>
+                    </tr>
+                    <tr>
+                        <td class="shipmentInforTR">Number of employees:</td>
+                        <td class="shipmentInforTR">80,000</td>
+                    </tr>
+                    <tr>
+                        <td class="shipmentInforTR">Consignments border crossings:</td>
+                        <td class="shipmentInforTR">300,000</td>
+                    </tr>
+                    <tr>
+                        <td class="shipmentInforTR">Successful border crossings:</td>
+                        <td class="shipmentInforTR">99% - 297,163 out of 300,000</td>
+                    </tr>
+                    <tr>
+                        <td class="shipmentInforTR">Successful border crossings last 30 days:</td>
+                        <td class="shipmentInforTR">100% - 1120 out of 1120</td>
+                    </tr>
+                </table>
+
+            </div>
+            <div flex="35">
+                <ul>
+                    <li>Overall Risk Factor: <span style="color: #00a80d">2.82%</span></li>
+                    <li>Overall Tariff Code Risk Factor (ambiguous) : <span style="color: #ffa924">13.15%</span></li>
+                    <li>Documentation Risk Factor: <span style="color: #63ff37">8.90%</span></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+    <!-- COMPANIES INVOLVED -->
     <div>
-        <div style="margin: 30px 50px 50px 50px;">
-            <h1 style="font-family: 'roboto condensed', sans-serif;">Maersk's Shipments</h1>
-        </div>
-        <div>
-            <table style="width: 100%; font-family: 'roboto condensed', sans-serif; font-weight: normal">
-                <tr>
-                    <th style="text-align: center">Shipment ID</th>
-                    <th style="text-align: center">Shipment origin (city, country)</th>
-                    <th style="text-align: center">Status</th>
-                    <th style="text-align: center">Previous company</th>
-                    <th style="text-align: center">Date handover</th>
-                    <th style="text-align: center">Location handover</th>
-                    <th style="text-align: center">Next company</th>
-                    <th style="text-align: center">Date confirmed</th>
-                    <th style="text-align: center">Location confirmed</th>
-                    <th style="text-align: center">Date handover</th>
-                    <th style="text-align: center">Location handover</th>
-                </tr>
-                <tr>
-                    <td>Shipment ID</td>
-                    <td>Shipment origin (city, country)</td>
-                    <td>Status</td>
-                    <td>Previous company</td>
-                    <td>Date handover</td>
-                    <td>Location handover</td>
-                    <td>Next company</td>
-                    <td>Date confirmed</td>
-                    <td>Location confirmed</td>
-                    <td>Date handover</td>
-                    <td>Location handover</td>
-                </tr>
-                <tr>
-                    <td>Shipment ID</td>
-                    <td>Shipment origin (city, country)</td>
-                    <td>Status</td>
-                    <td>Previous company</td>
-                    <td>Date handover</td>
-                    <td>Location handover</td>
-                    <td>Next company</td>
-                    <td>Date confirmed</td>
-                    <td>Location confirmed</td>
-                    <td>Date handover</td>
-                    <td>Location handover</td>
-                </tr>
-                <tr>
-                    <td>Shipment ID</td>
-                    <td>Shipment origin (city, country)</td>
-                    <td>Status</td>
-                    <td>Previous company</td>
-                    <td>Date handover</td>
-                    <td>Location handover</td>
-                    <td>Next company</td>
-                    <td>Date confirmed</td>
-                    <td>Location confirmed</td>
-                    <td>Date handover</td>
-                    <td>Location handover</td>
-                </tr>
-                <tr>
-                    <td>Shipment ID</td>
-                    <td>Shipment origin (city, country)</td>
-                    <td>Status</td>
-                    <td>Previous company</td>
-                    <td>Date handover</td>
-                    <td>Location handover</td>
-                    <td>Next company</td>
-                    <td>Date confirmed</td>
-                    <td>Location confirmed</td>
-                    <td>Date handover</td>
-                    <td>Location handover</td>
-                </tr>
-                <tr>
-                    <td>Shipment ID</td>
-                    <td>Shipment origin (city, country)</td>
-                    <td>Status</td>
-                    <td>Previous company</td>
-                    <td>Date handover</td>
-                    <td>Location handover</td>
-                    <td>Next company</td>
-                    <td>Date confirmed</td>
-                    <td>Location confirmed</td>
-                    <td>Date handover</td>
-                    <td>Location handover</td>
-                </tr>
-            </table>
-        </div>
+        <h2>Shipments</h2>
+        <table style="width: 100%">
+            <thead>
+            <th>Date started</th>
+            <th>Date finished</th>
+            <th>Time in custody</th>
+            <th>Shipment ID</th>
+            <th>Shipment risk factor</th>
+            <th>Inspected</th>
+            <th>Location started</th>
+            <th>Location finished</th>
+            </thead>
+            <tr>
+                <td>20.05.2018</td>
+                <td>N/A</td>
+                <td>32 days 4 hours</td>
+                <td>RSGER63-NR54</td>
+                <td style="color: green; font-weight: bold;">1%</td>
+                <td>No</td>
+                <td>Amsterdam</td>
+                <td>N/A</td>
+            </tr>
+            <tr>
+                <td>14.03.2018</td>
+                <td>20.05.2018</td>
+                <td>74 days 22 hours</td>
+                <td>DHHETYE357-8UY</td>
+                <td style="color: #7aee6a; font-weight: bold;">25%</td>
+                <td>2 times</td>
+                <td>Istanbul</td>
+                <td>Amsterdam</td>
+            </tr>
+            <tr>
+                <td>30.12.2017</td>
+                <td>14.03.2018</td>
+                <td>67 days 11 hours</td>
+                <td>K675645-KJ</td>
+                <td style="color: #00ac01; font-weight: bold;">2.4%</td>
+                <td>No</td>
+                <td>Zahedan زاهدان</td>
+                <td>Istanbul</td>
+            </tr>
+            <tr>
+                <td>11.12.2017</td>
+                <td>30.12.2017</td>
+                <td>19 days 1 hour</td>
+                <td>GER23-0987YG</td>
+                <td style="color: #7dff46; font-weight: bold;">10%</td>
+                <td>No</td>
+                <td>Jaipur जयपुर</td>
+                <td>Zahedan زاهدان</td>
+            </tr>
+            <tr>
+                <td>02.08.2017</td>
+                <td>11.12.2017</td>
+                <td>131 days 4 hours</td>
+                <td>GFHT-97856H</td>
+                <td style="color: #ffc900; font-weight: bold;">35%</td>
+                <td>2 times</td>
+                <td>Guangzhou 广州</td>
+                <td>Jaipur जयपुर</td>
+            </tr>
+            <tr>
+                <td>23.05.2017</td>
+                <td>02.08.2017</td>
+                <td>71 days 6 hours</td>
+                <td>GFF-6565R3W</td>
+                <td style="color: #ff5a00; font-weight: bold;">42%</td>
+                <td>4 times</td>
+                <td>Pontianak</td>
+                <td>Guangzhou 广州</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- PRODUCTS -->
+    <div>
+        <h2>Products</h2>
+        <table style="width: 100%">
+            <tr>
+                <th>Product</th>
+                <th>Country of origin</th>
+                <th>Quantity</th>
+                <th>Tariff code</th>
+                <th>Tariff risk factor</th>
+                <th>Hazardous</th>
+                <th>Consignment ID</th>
+                <th>Consignment origin</th>
+            </tr>
+            <tr>
+                <td>Roller bearing</td>
+                <td>Malaysia</td>
+                <td>10,000</td>
+                <td>8482 3000 00</td>
+                <td>2%</td>
+                <td>No</td>
+                <td>SFG-57UGW</td>
+                <td>Malaysia</td>
+            </tr>
+            <tr>
+                <td>Single row cylindrical roller bearing</td>
+                <td>China</td>
+                <td>500</td>
+                <td>8482 5000 10</td>
+                <td>1%</td>
+                <td>No</td>
+                <td>FGEG653-HR5</td>
+                <td>Malaysia</td>
+            </tr>
+            <tr>
+                <td>Split cylindrical roller bearing</td>
+                <td>China</td>
+                <td>2000</td>
+                <td>8482 2342 11</td>
+                <td>11%</td>
+                <td>No</td>
+                <td>FGEG653-HR5</td>
+                <td>China</td>
+            </tr>
+        </table>
+
     </div>
 </div>
