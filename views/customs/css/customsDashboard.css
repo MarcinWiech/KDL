@@ -90,3 +90,12 @@ span {
 h2 {
     text-align: center;
 }
+
+.table-hover > tbody > tr.hidden-table:hover > td:nth-child(odd) {
+    background-color: white;
+}
+
+.shipmentInforTR {
+    text-align: left;
+    background-color: transparent !important;
+}

@@ -1,5 +1,211 @@
 <link rel="stylesheet" href="views/customs/css/customsDashboard.css">
 
-<div>
-    <h1>Analyse Consignment</h1>
+<div layout="column" class="wrapper" layout-padding="" layout-wrap="" layout-margin="" ng-cloak="" layout-align="space-around" style="margin: 0px;padding: 0px 0;">
+
+    <!--photo-->
+    <div class="robotoLightCondensed" layout="row" style="margin: 0px;padding: 0px 0; background: linear-gradient(to bottom, rgba(74,74,74,0.8),rgba(137,137,137,0.5)), url('images/analyse_consignment.jpg'); background-size: 100%; background-position-y: center; height:300px;">
+
+        <div layout="column" flex="auto" style="margin:auto; margin-left: 200px">
+            <div>
+                <h1 class="robotoLightCondensed" style="color: white; font-size: 40px; text-align: left">Analyse Consignment</h1>
+            </div>
+            <div layout="row" style="margin-top: 2%">
+                <h2 class="robotoLightCondensed" style="color: white; font-size: 20px;">Consignment ID:</h2>
+                <h2 class="robotoLightCondensed" style="margin-left: 15px; color: white; font-size: 30px;">OGHSW3IE-IVSW-0RI</h2>
+            </div>
+        </div>
+        <div layout="column" flex="30" style="margin:auto; margin-right: 5%">
+            <div layout="row" style="margin:auto; !important;">
+                <div flex="auto" style="text-align: right; margin-right: 5px; margin:auto;">
+                    <span class="robotoLightCondensed" style="color:white; font-size:20px">Consignment risk factor</span>
+                </div>
+                <div flex="auto" style="margin:auto; margin-bottom:0px; margin-left: 5px !important;">
+                    <span class="robotoLightCondensed" style="color:white; font-size:40px;">6.12%</span>
+                </div>
+            </div>
+            <div >
+                <img src="images/ShipmentRiskFactor.png">
+            </div>
+        </div>
+    </div>
+
+    <div layout="row" style="width: 100%; margin: 0px; margin-top: 25px; margin-left: 1%">
+        <div flex="70" layout="row">
+            <div flex="65">
+                <table style="float: left; text-align: left !important;">
+                    <tr>
+                        <td class="shipmentInforTR">Shipment ID:</td>
+                        <td class="shipmentInforTR">OGHSW3IE-IVSW-0RI</td>
+                    </tr>
+                    <tr>
+                        <td class="shipmentInforTR">Destination:</td>
+                        <td class="shipmentInforTR">Luton</td>
+                    </tr>
+                    <tr>
+                        <td class="shipmentInforTR">Status:</td>
+                        <td class="shipmentInforTR">Confirmed</td>
+                    </tr>
+                    <tr>
+                        <td class="shipmentInforTR">Next owner:</td>
+                        <td class="shipmentInforTR">SKF</td>
+                    </tr>
+                    <tr>
+                        <td class="shipmentInforTR">Smart Contract Confirmed:</td>
+                        <td class="shipmentInforTR">21.05.2018</td>
+                    </tr>
+                    <tr>
+                        <td class="shipmentInforTR">Location Smart Contract Confirmed:</td>
+                        <td class="shipmentInforTR">Luton</td>
+                    </tr>
+                    <tr>
+                        <td class="shipmentInforTR">Border crossings:</td>
+                        <td class="shipmentInforTR">13</td>
+                    </tr>
+                    <tr>
+                        <td class="shipmentInforTR">Shipment Origin:</td>
+                        <td class="shipmentInforTR">Malaysia</td>
+                    </tr>
+
+                </table>
+
+            </div>
+            <div flex="35">
+                <ul>
+                    <li>Overall Risk Factor: <span style="color: lightgreen">8.12%</span></li>
+                    <li>Overall Tariff Code Risk Factor (ambiguous) : <span style="color: green">3.15%</span></li>
+                    <li>Documentation Risk Factor: <span style="color: #ffd219">12.90%</span></li>
+                </ul>
+            </div>
+        </div>
+        <div flex="30">
+            <img src="images/earth.png" style="width: 500px;">
+        </div>
+    </div>
+    <!-- COMPANIES INVOLVED -->
+    <div>
+        <h2>Companies involved</h2>
+        <table style="width: 100%">
+            <thead>
+            <th>Date started</th>
+            <th>Date finished</th>
+            <th>Time in custody</th>
+            <th>Company</th>
+            <th>Company risk rating</th>
+            <th>Border crossed</th>
+            <th>Location started</th>
+            <th>Location finished</th>
+            <th>Place confirmed</th>
+            <th>Date confirmed</th>
+            </thead>
+            <tr>
+                <td>20.05.2018</td>
+                <td>N/A</td>
+                <td>32 days 4 hours</td>
+                <td>Maersk</td>
+                <td style="color: green; font-weight: bold;">6%</td>
+                <td>No</td>
+                <td>Amsterdam</td>
+                <td>N/A</td>
+                <td>Amsterdam</td>
+                <td>15.04.2018</td>
+            </tr>
+            <tr>
+                <td>14.03.2018</td>
+                <td>20.05.2018</td>
+                <td>74 days 22 hours</td>
+                <td>Пурбаҳстаринҳо</td>
+                <td style="color: #7aee6a; font-weight: bold;">25%</td>
+                <td>2 times</td>
+                <td>Istanbul</td>
+                <td>Amsterdam</td>
+                <td>Sofia</td>
+                <td>01.02.2018</td>
+            </tr>
+            <tr>
+                <td>30.12.2017</td>
+                <td>14.03.2018</td>
+                <td class="CellWithComment" style="color: #b3000c; font-weight: bold;">
+                    67 days 11 hours
+                    <span class="CellComment">Abnormal time frame, too long</span>
+                </td>
+                <td>Brza isporuka</td>
+                <td style="color: #ffd135; font-weight: bold;">30%</td>
+                <td>4 times</td>
+                <td>Zahedan زاهدان</td>
+                <td>Istanbul</td>
+                <td>Zahedan زاهدان</td>
+                <td>20.12.2017</td>
+            </tr>
+            <tr>
+                <td>11.12.2017</td>
+                <td>30.12.2017</td>
+                <td>19 days 1 hour</td>
+                <td>Snelle verzendingen</td>
+                <td style="color: #ffa000; font-weight: bold;">40%</td>
+                <td>3 times</td>
+                <td>Jaipur जयपुर</td>
+                <td>Zahedan زاهدان</td>
+                <td class="CellWithComment" style="color: #b3000c; font-weight: bold;">
+                    Hosur ஓசூர்
+                    <span class="CellComment">Abnormal location, no company offices</span>
+                </td>
+                <td>13.10.2017</td>
+            </tr>
+            <tr>
+                <td>30.12.2017</td>
+                <td>14.03.2018</td>
+                <td>17 days 4 hours</td>
+                <td>快速发货</td>
+                <td style="color: #ffc900; font-weight: bold;">35%</td>
+                <td>2 times</td>
+                <td>Guangzhou 广州</td>
+                <td>Jaipur जयपुर</td>
+                <td>Guangzhou 广州</td>
+                <td>03.10.2017</td>
+            </tr>
+            <tr>
+                <td>30.12.2017</td>
+                <td>14.03.2018</td>
+                <td>4 days 5 hours</td>
+                <td>ফাস্ট শিপমেন্ট</td>
+                <td style="color: #ff5a00; font-weight: bold;">42%</td>
+                <td>5 times</td>
+                <td>Pontianak</td>
+                <td>Guangzhou 广州</td>
+                <td>N/A</td>
+                <td>N/A</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- PRODUCTS -->
+    <div>
+        <h2>Products</h2>
+        <table style="width: 100%">
+            <tr>
+                <th>Product</th>
+                <th>Country of origin</th>
+                <th>Quantity</th>
+                <th>Tariff code</th>
+                <th>Tariff risk factor</th>
+                <th>Hazardous</th>
+            </tr>
+            <tr>
+                <td>Single row cylindrical roller bearing</td>
+                <td>China</td>
+                <td>500</td>
+                <td>8482 5000 10</td>
+                <td>1%</td>
+                <td>No</td>
+            </tr>
+            <tr>
+                <td>Split cylindrical roller bearing</td>
+                <td>China</td>
+                <td>2000</td>
+                <td>8482 2342 11</td>
+                <td>11%</td>
+                <td>No</td>
+            </tr>
+        </table>
+    </div>
 </div>
