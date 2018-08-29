@@ -1,0 +1,15 @@
+.post {
+    height: auto;
+    width: 1200px;
+    margin: auto;
+}
+.wrapper {
+    margin: auto;
+    width: 100%;
+}
+
+.centreButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

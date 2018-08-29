@@ -99,3 +99,14 @@ h2 {
     text-align: left;
     background-color: transparent !important;
 }
+
+.pageTitle {
+    margin-top: 3%;
+    margin-left: 5%;
+}
+
+md-primary md-raised {
+    background-color: #555555 !important;
+    color: white;
+}
+

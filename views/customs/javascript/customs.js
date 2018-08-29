@@ -23,8 +23,8 @@ angular.module('myApp.customs', ['ngRoute'])
 
     }])
 
-    .controller('dashboard', ['$scope', '$route', function ($scope, $route) {
+    .controller('dashboardCtrl', ['$scope', '$route', function ($scope, $route) {
 
-
+        $scope.viewProductsOrCountries = false;
         $scope.location = $route.current.$$route.originalPath;
     }]);

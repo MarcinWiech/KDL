@@ -30,7 +30,7 @@
     <div layout="row" style="height:100%">
       <div class="sideNavLeft">
         <md-sidenav class="md-sidenav-left" md-is-locked-open="true" style="background-color: #555555;height:100%;width: 240px; margin-left: 0; box-shadow: 0px 3px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 1px 10px 10px 0px rgba(0, 0, 0, 0.12)" md-whiteframe="{{ctrl.elevation}}" ng-show="!customsView">
-            <img src="images/logo.png" style="float: left;margin-left: 45px; height: 80px"/>
+            <img src="images/Kblok_logo.png" style="float: left;margin-left: 45px; height: 80px; margin-top: 2%"/>
             <md-content style="background-color: #555555; color: lightgray">
             <md-list>
                 <md-list-item ng-href="#!/companyDashboard">
@@ -48,13 +48,13 @@
                 <md-list-item ng-href="#!/myConsignments">
                 <p>My consignments</p>
                 </md-list-item>
-                <md-list-item ng-href="#!/templates">
+                <md-list-item> <!-- ng-href="#!/templates" -->
                   <p>Templates</p>
                 </md-list-item>
-                <md-list-item ng-href="#!/finishedShipments">
+                <md-list-item> <!-- ng-href="#!/finishedShipments" -->
                   <p>Finished shipments</p>
                 </md-list-item>
-                <md-list-item ng-href="#!/manageOfferedShipments">
+                <md-list-item> <!-- ng-href="#!/manageOfferedShipments" -->
                   <p>Manage offered shipments</p>
                 </md-list-item>
                 <md-list-item ng-href="#!/3SCI">
@@ -67,7 +67,7 @@
           </md-content>
         </md-sidenav>
         <md-sidenav class="md-sidenav-left" md-is-locked-open="true" style="background-color: #555555;height:100%;width: 240px; margin-left: 0; box-shadow: 0px 3px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 1px 10px 10px 0px rgba(0, 0, 0, 0.12)" md-whiteframe="{{ctrl.elevation}}" ng-show="customsView">
-            <img src="images/logo.png" style="float: left;margin-left: 45px; height: 80px"/>
+            <img src="images/Kblok_logo.png" style="float: left;margin-left: 45px; height: 80px; margin-top: 2%"/>
             <md-content style="background-color: #555555; color: lightgray">
                 <md-list>
                     <md-list-item ng-href="#!/customsDashboard">
@@ -105,21 +105,15 @@ Use of this source code is governed by an MIT-style license that can be foundin 
 -->
 
 
-<script src="views/newShipment/newShipment.js"></script>
-<script src="views/myShipments/myShipments.js"></script>
-<script src="views/newConsignment/newConsignment.js"></script>
-<script src="views/myConsignments/myConsignments.js"></script>
-<script src="views/templates/templates.js"></script>
-<script src="views/finishedShipments/finishedShipments.js"></script>
-<script src="views/manageOfferedShipments/manageOfferedShipments.js"></script>
-<script src="views/changeOfCustody/changeOfCustody.js"></script>
-<script src="views/shipmentHistory/shipmentHistory.js"></script>
-<script src="views/scans/companyScans/companyScans.js"></script>
-<script src="views/scans/consignmentScans/consignmentScans.js"></script>
-<script src="views/map/map.js"></script>
-<script src="views/employeesInvolved/employeesInvolved.js"></script>
-<script src="views/editConsignment/editConsignment.js"></script>
-<script src="views/companyDashboard/companyDashboard.js"></script>
+
+
+
+
+
+
+
+
 <script src="views/customs/javascript/customs.js"></script>
+<script src="views/company/javascript/company.js"></script>
 </body>
 </html>

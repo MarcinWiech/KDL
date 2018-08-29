@@ -1,0 +1,12 @@
+.cell {
+    margin: auto;
+}
+.centreButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.md-raised {
+    width: 100%;
+}

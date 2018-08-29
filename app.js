@@ -6,22 +6,8 @@ var myApp = angular.module('MyApp', [
     'ngMaterial',
     'ngMessages',
     'material.svgAssetsCache',
-    'myApp.newShipment',
-    'myApp.myShipments',
-    'myApp.newConsignment',
-    'myApp.myConsignments',
-    'myApp.templates',
-    'myApp.finishedShipments',
-    'myApp.manageOfferedShipments',
-    'myApp.changeOfCustody',
-    'myApp.shipmentHistory',
-    'myApp.companyScans',
-    'myApp.map',
-    'myApp.employeesInvolved',
-    'myApp.consignmentScans',
-    'myApp.editConsignment',
     'myApp.customs',
-    'myApp.companyDashboard',
+    'myApp.company',
 ]);
 
     myApp.controller('indexCtrl',[ '$scope','$rootScope','$location','$route', function($rootScope, $scope, $location, $route) {
@@ -62,49 +48,49 @@ var myApp = angular.module('MyApp', [
     myApp.config(["$routeProvider", function($routeProvider){
 
         $routeProvider
-            .when('/views/newShipment/newShipment', {
+            .when('/views/company/html/newShipment', {
                 templateUrl: '/newShipment.html',
             })
-            .when('/views/myShipments/myShipments', {
+            .when('/views/company/html/myShipments', {
                 templateUrl: '/myShipments.html',
             })
-            .when('/views/newConsignment/newConsignment', {
+            .when('/views/company/html/newConsignment', {
                 templateUrl: '/newConsignment.html',
             })
-            .when('/views/myConsignments/myConsignments', {
+            .when('/views/company/html/myConsignments', {
                 templateUrl: '/myConsignments.html',
             })
-            .when('/views/templates/templates', {
+            .when('/views/company/html/templates', {
                 templateUrl: '/templates.html',
             })
-            .when('/views/finishedShipments/finishedShipments', {
+            .when('/views/company/html/finishedShipments', {
                 templateUrl: '/finishedShipments.html',
             })
-            .when('/views/manageOfferedShipments/manageOfferedShipments', {
+            .when('/views/company/html/manageOfferedShipments', {
                 templateUrl: '/manageOfferedShipments.html',
             })
-            .when('/views/changeOfCustody/changeOfCustody', {
+            .when('/views/company/html/changeOfCustody', {
                 templateUrl: '/changeOfCustody.html',
             })
-            .when('/views/shipmentHistory/shipmentHistory', {
+            .when('/views/company/html/shipmentHistory', {
                 templateUrl: '/shipmentHistory.html',
             })
-            .when('/views/scans/companyScans/companyScans', {
+            .when('/views/company/html/companyScans', {
                 templateUrl: '/companyScans.html',
             })
-            .when('/views/map/map', {
+            .when('/views/company/html/map', {
                 templateUrl: '/map.html',
             })
-            .when('/views/employeesInvolved/employeesInvolved', {
+            .when('/views/company/html/employeesInvolved', {
                 templateUrl: '/employeesInvolved.html',
             })
-            .when('/views/scans/consignmentScans', {
+            .when('/views/company/html/consignmentScans', {
                 templateUrl: '/consignmentScans.html',
             })
-            .when('/views/editConsignment/editConsignment', {
+            .when('/views/company/html/editConsignment', {
                 templateUrl: '/editConsignment.html',
             })
-            .when('/views/companyDashboard/companyDashboard', {
+            .when('/views/company/html/companyDashboard', {
                 templateUrl: '/companyDashboard.html',
             })
             .when('/views/customs/html/customsDashboard', {

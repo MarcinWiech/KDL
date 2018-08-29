@@ -74,6 +74,9 @@ h1 {
   z-index: 2;
 }
 
+.container {
+  margin-top: 2%;
+}
 
 /*
 Copyright 2018 Google Inc. All Rights Reserved.
