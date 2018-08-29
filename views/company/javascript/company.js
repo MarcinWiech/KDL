@@ -311,7 +311,7 @@ angular.module('myApp.company', ['ngRoute'])
             );
         };
 
-        //i need to test this
+        //need to test this
         /*
         $rootScope.addShipment = function () {
 
