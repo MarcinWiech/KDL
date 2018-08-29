@@ -27,50 +27,47 @@
 <body ng-app="MyApp">
 
 <div layout="column" style="height:100%" ng-controller="indexCtrl">
-    <div>
-        <md-toolbar style="background-color: #555555; height: 80px; display: block; position: fixed" md-whiteframe="{{ctrl.elevation}}" layout="row">
-
-            <img src="images/logo.png" style="float: left;margin-left: 45px;"/>
-
-            <md-button class="md-raised" ng-click="isCustomsView()" style="display: block; float: right; margin-top: 20px; margin-right: 20px; width: auto;">
-                Go to {{customsView ? 'Company' : 'Customs'}} View ({{customsView}})
-            </md-button>
-
-        </md-toolbar>
-    </div>
-    <div layout="row" style="height:100%;margin-top: 80px">
+    <div layout="row" style="height:100%">
       <div class="sideNavLeft">
-        <md-sidenav class="md-sidenav-left" md-is-locked-open="true" style="background-color: #555555;height:100%;width: 250px; margin-left: 0; box-shadow: 0px 3px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 1px 10px 10px 0px rgba(0, 0, 0, 0.12)" md-whiteframe="{{ctrl.elevation}}" ng-show="!customsView">
-          <md-content style="background-color: #555555; color: lightgray">
+        <md-sidenav class="md-sidenav-left" md-is-locked-open="true" style="background-color: #555555;height:100%;width: 240px; margin-left: 0; box-shadow: 0px 3px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 1px 10px 10px 0px rgba(0, 0, 0, 0.12)" md-whiteframe="{{ctrl.elevation}}" ng-show="!customsView">
+            <img src="images/logo.png" style="float: left;margin-left: 45px; height: 80px"/>
+            <md-content style="background-color: #555555; color: lightgray">
             <md-list>
-              <md-list-item ng-href="#!/companyDashboard">
+                <md-list-item ng-href="#!/companyDashboard">
                   <p>Company dashboard</p>
-              </md-list-item>
-              <md-list-item ng-href="#!/newShipment">
+                </md-list-item>
+                <md-list-item ng-href="#!/newShipment">
                   <p>New shipment</p>
-              </md-list-item>
-              <md-list-item ng-href="#!/myShipments">
+                </md-list-item>
+                <md-list-item ng-href="#!/myShipments">
                   <p>My shipments</p>
-              </md-list-item>
-              <md-list-item ng-href="#!/newConsignment">
+                </md-list-item>
+                <md-list-item ng-href="#!/newConsignment">
                   <p>New consignment</p>
-              </md-list-item>
-              <md-list-item ng-href="#!/myConsignments">
+                </md-list-item>
+                <md-list-item ng-href="#!/myConsignments">
                 <p>My consignments</p>
-              </md-list-item>
-              <md-list-item ng-href="#!/templates">
+                </md-list-item>
+                <md-list-item ng-href="#!/templates">
                   <p>Templates</p>
-              </md-list-item>
-              <md-list-item ng-href="#!/finishedShipments">
+                </md-list-item>
+                <md-list-item ng-href="#!/finishedShipments">
                   <p>Finished shipments</p>
-              </md-list-item>
-              <md-list-item ng-href="#!/manageOfferedShipments">
+                </md-list-item>
+                <md-list-item ng-href="#!/manageOfferedShipments">
                   <p>Manage offered shipments</p>
-              </md-list-item>
+                </md-list-item>
+                <md-list-item ng-href="#!/3SCI">
+                    <p>3SCI</p>
+                </md-list-item>
+                <md-list-item ng-click="isCustomsView()">
+                    Go to {{customsView ? 'company' : 'customs'}} view
+                </md-list-item>
             </md-list>
           </md-content>
         </md-sidenav>
-        <md-sidenav class="md-sidenav-left" md-is-locked-open="true" style="background-color: #555555;height:100%;width: 250px; margin-left: 0; box-shadow: 0px 3px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 1px 10px 10px 0px rgba(0, 0, 0, 0.12)" md-whiteframe="{{ctrl.elevation}}" ng-show="customsView">
+        <md-sidenav class="md-sidenav-left" md-is-locked-open="true" style="background-color: #555555;height:100%;width: 240px; margin-left: 0; box-shadow: 0px 3px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 1px 10px 10px 0px rgba(0, 0, 0, 0.12)" md-whiteframe="{{ctrl.elevation}}" ng-show="customsView">
+            <img src="images/logo.png" style="float: left;margin-left: 45px; height: 80px"/>
             <md-content style="background-color: #555555; color: lightgray">
                 <md-list>
                     <md-list-item ng-href="#!/customsDashboard">
@@ -85,11 +82,14 @@
                     <md-list-item ng-href="#!/analyseConsignment">
                         <p>Analyse Consignment</p>
                     </md-list-item>
+                    <md-list-item ng-click="isCustomsView()">
+                        Go to {{customsView ? 'company' : 'customs'}} view
+                    </md-list-item>
                 </md-list>
             </md-content>
         </md-sidenav>
     </div>
-    <div layout="column" style="margin-left: 250px; width: 100%;">
+    <div layout="column" style="margin-left: 240px; width: 100%;">
       <div style="margin-bottom: auto">
         <main ng-view=""></main>
       </div>
