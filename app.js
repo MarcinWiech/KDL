@@ -41,3 +41,59 @@ var myApp = angular.module('MyApp', [
             return $scope.customsView;
         };
     }]);
+
+    myApp.config(["$routeProvider", function($routeProvider){
+
+    $routeProvider
+        .when('/views/company/html/newShipment', {
+            templateUrl: '/newShipment.html',
+        })
+        .when('/views/company/html/myShipments', {
+            templateUrl: '/myShipments.html',
+        })
+        .when('/views/company/html/newConsignment', {
+            templateUrl: '/newConsignment.html',
+        })
+        .when('/views/company/html/myConsignments', {
+            templateUrl: '/myConsignments.html',
+        })
+        .when('/views/company/html/templates', {
+            templateUrl: '/templates.html',
+        })
+        .when('/views/company/html/finishedShipments', {
+            templateUrl: '/finishedShipments.html',
+        })
+        .when('/views/company/html/manageOfferedShipments', {
+            templateUrl: '/manageOfferedShipments.html',
+        })
+        .when('/views/company/html/changeOfCustody', {
+            templateUrl: '/changeOfCustody.html',
+        })
+        .when('/views/company/html/shipmentHistory', {
+            templateUrl: '/shipmentHistory.html',
+        })
+        .when('/views/company/html/companyScans', {
+            templateUrl: '/companyScans.html',
+        })
+        .when('/views/company/html/map', {
+            templateUrl: '/map.html',
+        })
+        .when('/views/company/html/employeesInvolved', {
+            templateUrl: '/employeesInvolved.html',
+        })
+        .when('/views/company/html/consignmentScans', {
+            templateUrl: '/consignmentScans.html',
+        })
+        .when('/views/company/html/editConsignment', {
+            templateUrl: '/editConsignment.html',
+        })
+        .when('/views/company/html/companyDashboard', {
+            templateUrl: '/companyDashboard.html',
+        })
+        .when('/views/customs/html/customsDashboard', {
+            templateUrl: '/customsDashboard.html',
+        })
+        .otherwise({
+            redirectTo: '/customsDashboard'
+        });
+    }]);

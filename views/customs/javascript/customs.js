@@ -18,6 +18,9 @@ angular.module('myApp.customs', ['ngRoute'])
         })
         .otherwise({
             templateUrl: 'views/customs/html/customsDashboard.html',
+        })
+        .otherwise({
+            redirectTo: '/customsDashboard',
         });
 
     }])

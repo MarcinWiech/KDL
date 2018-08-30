@@ -1,8 +1,10 @@
-<link rel="stylesheet" href="views/company/css/newShipment.css">
+<link rel="stylesheet" href="views/company/css/company.css">
 
-<div class="container" ng-app="myApp.company" ng-controller="newShipmentCtrl">
-    <div>
-        <h1>New shipment</h1>
+<div ng-app="myApp.company" ng-controller="newShipmentCtrl">
+    <div layout="row" style="margin: 0px; margin-bottom: 5%; padding: 0px 0; background: linear-gradient(to bottom, rgba(62,62,62,0.8),rgba(137,137,137,0.5)), url('images/newShipment.png'); background-size: 100%; background-position-y: center; height:200px;">
+        <div class="pageTitle" layout="column" flex="auto">
+            <h1 style="color: white; font-size: 40px; text-align: left">New shipment</h1>
+        </div>
     </div>
 
     <div layout="column" layout-padding="" layout-wrap="" layout-margin="" ng-cloak="" layout-align="space-around" style="margin: auto">
@@ -94,7 +96,11 @@
             </div>
         </div>
 
-        <div class="centreButton">
+        <div layout="column" class="centreButton" ng-show="!canShowNewConsignment">
+            <div >
+                <h2>Add consignment</h2>
+            </div>
+
             <md-button class="md-fab md-primary" ng-click="showNewConsignment()" ng-show="!canShowNewConsignment">
                 <md-icon md-svg-src="images/baseline-add-24px.svg"></md-icon>
             </md-button>

@@ -11,10 +11,9 @@ li {
 
 table {
     color: #333;
-    font-family: Helvetica, Arial, sans-serif;
     width: 640px;
     border-collapse:
-            collapse; border-spacing: 0;
+    collapse; border-spacing: 0;
 }
 
 td, th {
@@ -41,7 +40,7 @@ tr:nth-child(even) td { background: #F1F1F1; }
 tr:nth-child(odd) td { background: #FEFEFE; }
 
 
-.robotoLightCondensed {
+.robotoLight {
     font-family: "Roboto Condensed", sans-serif;
     font-weight: lighter !important;
 }
@@ -90,11 +89,6 @@ h2 {
 .shipmentInforTR {
     text-align: left;
     background-color: transparent !important;
-}
-
-.pageTitle {
-    margin-top: 3%;
-    margin-left: 5%;
 }
 
 md-primary md-raised {

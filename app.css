@@ -1,6 +1,11 @@
 /* app css stylesheet */
 body {
-  font-family: Roboto;
+  font-family: 'Roboto', sans-serif;
+
+}
+
+.robotoLight {
+  font-weight: lighter !important;
 }
 .main {
    /* Same as the width of the sidenav */
@@ -9,11 +14,6 @@ body {
 @media screen and (max-height: 450px) {
   .sidenav1 {padding-top: 15px;}
   .sidenav1 a {font-size: 18px;}
-}
-
-.md-toolbar-tools{
-
-
 }
 
 .post {
@@ -33,7 +33,6 @@ img {
   margin-left: auto;
   margin-right: auto;
 }
-
 
 .conOpt {
   display: flex;
@@ -76,4 +75,19 @@ h1 {
 
 .container {
   margin-top: 2%;
+}
+
+.pageTitle {
+    margin-top: 3%;
+    margin-left: 5%;
+}
+
+.pageBannerCompany {
+    margin: 0px;
+    margin-bottom: 5%;
+    padding: 0px 0;
+    background: linear-gradient(to bottom, rgba(62,62,62,0.8),rgba(137,137,137,0.5));
+    background-size: 100%;
+    background-position-y: center;
+    height:200px;
 }

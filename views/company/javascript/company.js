@@ -57,6 +57,9 @@ angular.module('myApp.company', ['ngRoute'])
             })
             .when('/consignmentScans', {
                 templateUrl: 'views/company/html/consignmentScans.html',
+            })
+            .otherwise({
+            redirectTo: '/customsDashboard',
             });
 
     }])
