@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
   <link rel="stylesheet" href="https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.10/angular-material.css">
   <link rel="stylesheet" href="https://material.angularjs.org/1.1.10/docs.css">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300|Roboto+Condensed:300|Roboto:300,400" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300|Roboto+Condensed:300|Roboto:300" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular-animate.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular-route.min.js"></script>
@@ -24,8 +24,8 @@
 <div layout="column" style="height:100%" ng-controller="indexCtrl"> <!-- ng-init="isCustomsView()" -->
     <div layout="row" style="height:100%">
       <div class="sideNavLeft">
-        <md-sidenav class="md-sidenav-left" md-is-locked-open="true" style="background-color: #555555;height:100%;width: 240px; margin-left: 0; box-shadow: 0px 3px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 1px 10px 10px 0px rgba(0, 0, 0, 0.12)" md-whiteframe="{{ctrl.elevation}}" ng-show="!customsView">
-            <img src="images/Kblok_logo.png" style="float: left;margin-left: 45px; height: 80px; margin-top: 2%"/>
+        <md-sidenav class="md-sidenav-left" md-is-locked-open="true" style="background-color: #555555;height:100%;width: 200px; margin-left: 0; box-shadow: 0px 3px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 1px 10px 10px 0px rgba(0, 0, 0, 0.12)" md-whiteframe="{{ctrl.elevation}}" ng-show="!customsView">
+            <img src="images/Kblok_logo.png" style="margin-left: 25px; height: 80px; margin-top: 2%"/>
             <md-content style="background-color: #555555; color: lightgray">
             <md-list>
                 <md-list-item ng-href="#!/companyDashboard">
@@ -62,8 +62,8 @@
             </md-list>
           </md-content>
         </md-sidenav>
-        <md-sidenav class="md-sidenav-left" md-is-locked-open="true" style="background-color: #555555;height:100%;width: 240px; margin-left: 0; box-shadow: 0px 3px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 1px 10px 10px 0px rgba(0, 0, 0, 0.12)" md-whiteframe="{{ctrl.elevation}}" ng-show="customsView">
-            <img src="images/Kblok_logo.png" style="float: left;margin-left: 45px; height: 80px; margin-top: 2%"/>
+        <md-sidenav class="md-sidenav-left" md-is-locked-open="true" style="background-color: #555555;height:100%;width: 200px; margin-left: 0; box-shadow: 0px 3px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 1px 10px 10px 0px rgba(0, 0, 0, 0.12)" md-whiteframe="{{ctrl.elevation}}" ng-show="customsView">
+            <img src="images/Kblok_logo.png" style="margin-left: 25px; height: 80px; margin-top: 2%;"/>
             <md-content style="background-color: #555555; color: lightgray">
                 <md-list>
                     <md-list-item ng-href="#!/customsDashboard">
@@ -85,7 +85,7 @@
             </md-content>
         </md-sidenav>
     </div>
-    <div layout="column" style="margin-left: 240px; width: 100%;">
+    <div layout="column" style="margin-left: 200px; width: 100%;">
       <div style="margin-bottom: auto">
         <main ng-view=""></main>
       </div>

@@ -1,11 +1,12 @@
 /* app css stylesheet */
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Open Sans', sans-serif;
 
 }
 
 .robotoLight {
   font-weight: lighter !important;
+  font-family: "Roboto Condensed", sans-serif;
 }
 .main {
    /* Same as the width of the sidenav */
@@ -90,4 +91,8 @@ h1 {
     background-size: 100%;
     background-position-y: center;
     height:200px;
+}
+
+.md-button {
+    text-transform: none !important;
 }
