@@ -6,20 +6,19 @@ angular.module('myApp.customs', ['ngRoute'])
         $routeProvider
         .when('/customsDashboard', {
             templateUrl: 'views/customs/html/customsDashboard.html',
-            //controller: 'customsDashboardCtrl'
         })
         .when('/analyseEntity', {
             templateUrl: 'views/customs/html/analyseEntity.html',
-            //controller: 'customsDashboardCtrl'
         })
         .when('/analyseConsignment', {
             templateUrl: 'views/customs/html/analyseConsignment.html',
-            //controller: 'customsDashboardCtrl'
         })
         .when('/analyseShipment', {
             templateUrl: 'views/customs/html/analyseShipment.html',
-            //controller: 'customsDashboardCtrl'
         })
+        .otherwise({
+            templateUrl: 'views/customs/html/customsDashboard.html',
+        });
 
     }])
 

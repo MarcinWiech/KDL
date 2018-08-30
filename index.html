@@ -3,11 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
   <link rel="stylesheet" href="https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.10/angular-material.css">
   <link rel="stylesheet" href="https://material.angularjs.org/1.1.10/docs.css">
-
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular-animate.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular-route.min.js"></script>
@@ -20,9 +18,7 @@
   <script src="app.js"></script>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
   <link rel="stylesheet" href="app.css">
-
 </head>
-
 <body ng-app="MyApp">
 <div layout="column" style="height:100%" ng-controller="indexCtrl"> <!-- ng-init="isCustomsView()" -->
     <div layout="row" style="height:100%">
@@ -46,13 +42,14 @@
                 <md-list-item ng-href="#!/myConsignments">
                 <p>My consignments</p>
                 </md-list-item>
-                <md-list-item> <!-- ng-href="#!/templates" -->
+                <!--
+                <md-list-item> <!-- ng-href="#!/templates"
                   <p>Templates</p>
                 </md-list-item>
-                <md-list-item> <!-- ng-href="#!/finishedShipments" -->
+                <md-list-item> <!-- ng-href="#!/finishedShipments"
                   <p>Finished shipments</p>
                 </md-list-item>
-                <md-list-item> <!-- ng-href="#!/manageOfferedShipments" -->
+                <md-list-item> <!-- ng-href="#!/manageOfferedShipments"
                   <p>Manage offered shipments</p>
                 </md-list-item>
                 <!--<md-list-item ng-href="#!/3SCI">

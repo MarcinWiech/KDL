@@ -12,17 +12,18 @@
     <div layout="column" class="wrapper" layout-padding="" layout-wrap="" layout-margin="" ng-cloak="" layout-align="space-around" style="margin: 0px;padding: 0px 0; background-color: #212831;">
         <div style="margin-left: 2%" layout="row">
             <div>
-                <md-button class="md-primary md-raised" ng-click="viewProductsOrCountries = false" style="background-color: #555555 !important; color: lightgray;">
-                    Products
+                <md-button class="md-primary md-raised" ng-click="viewProductsOrCountries = !viewProductsOrCountries" style="background-color: #555555 !important; color: lightgray;">
+                    {{viewProductsOrCountries ? 'Products' : 'Countries'}}
                 </md-button>
             </div>
+            <!--
             <div>
                 <md-button class="md-primary md-raised" ng-click="viewProductsOrCountries = true" style="background-color: #555555 !important; color: lightgray;">
                     Countries
                 </md-button>
             </div>
+            -->
         </div>
-
         <!-- screenshots from https://atlas.media.mit.edu/en/ -->
         <div ng-show="!viewProductsOrCountries" style="margin: 0px; padding: 0px;">
             <img style="margin: 0; width: 100%" src="images/import.png">
