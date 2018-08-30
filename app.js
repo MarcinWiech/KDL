@@ -29,8 +29,6 @@ var myApp = angular.module('MyApp', [
 
         $scope.isCustomsView = function() {
 
-
-
             $scope.customsView = !$scope.customsView;
 
             if($scope.customsView == true){
@@ -40,7 +38,6 @@ var myApp = angular.module('MyApp', [
                 $location.path('/companyDashboard');
             }
             window.localStorage.setItem('customsView', $scope.customsView);
-            $scope.$digest();
             return $scope.customsView;
         };
     }]);
