@@ -79,16 +79,16 @@
                             <md-button class="md-raised" style="background-color: grey">History</md-button>
                         </div>
                         <div class="centreButton">                 <!-- previousPage(newShipment) -->
-                            <md-button class="md-raised" ng-click="setEditConsignment($index, 'newShipment')" ng-href="#!/editConsignment" aria-label>
+                            <md-button class="md-raised" ng-click="setEditConsignment($index, 'newShipment')" ng-href="#!/editConsignment" aria-label="ShowHideAccountant">
                                 <i class="fas fa-pen"></i>
                             </md-button>
                         </div>
                     </div>
                     <div flex="40">
-                        <md-button class="md-raised" style="float:right;" ng-click="deleteConsignmentPopUp($event, $index)">
+                        <md-button class="md-raised" style="float:right;" ng-click="deleteConsignmentPopUp($event, $index)" aria-label="ShowHideAccountant">
                             <i class="fas fa-trash"></i>
                         </md-button>
-                        <md-button class="md-raised" style="float:right;" ng-click="removeConsignmentFromShipment($index)">
+                        <md-button class="md-raised" style="float:right;" ng-click="removeConsignmentFromShipment($index)" aria-label="ShowHideAccountant">
                             Remove from shipment
                         </md-button>
                     </div>
@@ -97,11 +97,11 @@
         </div>
 
         <div layout="column" class="centreButton" ng-show="!canShowNewConsignment">
-            <div >
-                <h2>Add consignment</h2>
+            <div ng-show="showNoConsignmentsMessage()" class="centreButton" layout="column" style="margin-top: 50px;">
+                <h2>You have no consignments added to the shipment</h2>
             </div>
 
-            <md-button class="md-fab md-primary" ng-click="showNewConsignment()" ng-show="!canShowNewConsignment">
+            <md-button class="md-fab md-primary" ng-click="showNewConsignment()" ng-show="!canShowNewConsignment" aria-label="ShowHideAccountant">
                 <md-icon md-svg-src="images/baseline-add-24px.svg"></md-icon>
             </md-button>
         </div>

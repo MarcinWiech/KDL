@@ -1,26 +1,29 @@
 <link rel="stylesheet" href="views/company/css/company.css">
-<div>
+<div ng-app="myApp.company" ng-controller="myShipmentsCtrl">
     <div layout="row" style="margin: 0px; margin-bottom: 5%; padding: 0px 0; background: linear-gradient(to bottom, rgba(62,62,62,0.8),rgba(137,137,137,0.3)), url('images/myShipments.png'); background-size: 100%; background-position-y: center; height:200px;">
         <div class="pageTitle" layout="column" flex="auto">
             <h1 class="robotoLight" style="color: white; font-size: 40px; text-align: left">My shipments</h1>
         </div>
     </div>
-    <div ng-app="myApp.company" ng-controller="myShipmentsCtrl">
-        <!-- {{getShipments}} -->
-        <div layout="column" layout-padding="" layout-wrap="" layout-margin="" ng-cloak="" layout-align="space-around" style="margin: auto">
-            <!-- Consignment divs !-->
-            <div class="post" md-whiteframe="{{ctrl.elevation}}"  layout="row" layout-align="center" style="margin: auto; height: 200px">
+    <div ng-show="showNoShipmentMessage()" class="centreButton" layout="column" style="margin-top: 50px;">
+        <h2>You have no shipments saved in "My shipments"</h2>
+    </div>
+    <!-- {{getShipments}} -->
+    <div layout="column" layout-padding="" layout-wrap="" layout-margin="" ng-cloak="" layout-align="space-around" style="margin: auto">
+        <!-- Consignment divs !-->
+        <div ng-repeat="shipment in getShipments track by $index" style="margin: auto">
+            <div class="post" md-whiteframe="{{ctrl.elevation}}"  layout="row" layout-align="center" style="height: 200px">
                 <div flex="40" layout="center center">
                     <img src="https://ptremovals.co.uk/wp-content/uploads/2016/02/short-packing-box.png"/>
                 </div>
                 <div flex="30" layout="column">
                     <div class="conOpt" flex="25">
-                        <p>Custody Status: pending</p>
+                        <p>Custody Status: {{shipment.status}}</p>
                     </div>
                 </div>
                 <div flex="30" layout="column">
                     <div class="conOpt" flex="25">
-                        <p>Shipment ID: 1341y3fnSKfjal</p>
+                        <p>Shipment ID: {{shipment.id}}</p>
                     </div>
                     <div class="conOpt" flex="25">
                         <md-button class="md-raised" ng-href="#!/map" style="width: 100%">Visualise the route</md-button>
@@ -29,33 +32,7 @@
                         <md-button class="md-raised" style="background-color: grey; width: 100%">Add/Update the picture</md-button>
                     </div>
                     <div class="conOpt" flex="25">
-                        <md-button class="md-raised" flex style="display: flex; justify-content: center;" ng-href="#!/shipmentHistory">More</md-button>
-                    </div>
-                </div>
-            </div>
-            <div ng-repeat="shipment in getShipments" style="margin: auto">
-                <div class="post" md-whiteframe="{{ctrl.elevation}}"  layout="row" layout-align="center" style="height: 200px">
-                    <div flex="40" layout="center center">
-                        <img src="https://ptremovals.co.uk/wp-content/uploads/2016/02/short-packing-box.png"/>
-                    </div>
-                    <div flex="30" layout="column">
-                        <div class="conOpt" flex="25">
-                            <p>Custody Status: {{shipment.status}}</p>
-                        </div>
-                    </div>
-                    <div flex="30" layout="column">
-                        <div class="conOpt" flex="25">
-                            <p>Shipment ID: {{shipment.id}}</p>
-                        </div>
-                        <div class="conOpt" flex="25">
-                            <md-button class="md-raised" ng-href="#!/map" style="width: 100%">Visualise the route</md-button>
-                        </div>
-                        <div class="conOpt" flex="25">
-                            <md-button class="md-raised" style="background-color: grey; width: 100%">Add/Update the picture</md-button>
-                        </div>
-                        <div class="conOpt" flex="25">
-                            <md-button class="md-raised" flex style="display: flex; justify-content: center;" ng-href="#!/shipmentHistory">More</md-button>
-                        </div>
+                        <md-button class="md-raised" style="display: flex; justify-content: center; width: 100%" ng-click="clickMore(shipment.id)" ng-href="#!/shipmentHistory">More</md-button>
                     </div>
                 </div>
             </div>

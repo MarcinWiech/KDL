@@ -9,7 +9,6 @@
         <h2>You have no consignments saved in "My consignments"</h2>
     </div>
 
-
     <div layout="column" layout-padding="" layout-wrap="" layout-margin="" ng-cloak="" layout-align="space-around" style="margin: auto">
 
         <!-- these are proper consignments -->
@@ -78,19 +77,20 @@
                             </a>
                         </div>
                         <div class="centreButton">
+                        <div class="centreButton">
                             <md-button class="md-raised" style="background-color: grey">History</md-button>
                         </div>
                         <div class="centreButton">
                             <md-button class="md-raised" ng-click="addConsignmentToShipment($index)">Add to the new shipment</md-button>
                         </div>
                         <div class="centreButton">
-                            <md-button class="md-raised" ng-click="setEditConsignment($index, 'myConsignments')" ng-href="#!/editConsignment" >
+                            <md-button class="md-raised" ng-click="setEditConsignment($index, 'myConsignments')" ng-href="#!/editConsignment" aria-label="ShowHideAccountant">
                                 <i class="fas fa-pen"></i>
                             </md-button>
                         </div>
                     </div>
                     <div flex="20">
-                        <md-button class="md-raised" style="float:right;" ng-click="deleteConsignmentPopUp($event, $index)">
+                        <md-button class="md-raised" style="float:right;" ng-click="deleteConsignmentPopUp($event, $index)" aria-label="ShowHideAccountant">
                             <i class="fas fa-trash"></i>
                         </md-button>
                     </div>
@@ -99,7 +99,7 @@
         </div>
     </div>
     <div class="centreButton" layout="column">
-        <md-button class="md-fab md-primary" ng-href="#!/newConsignment">
+        <md-button class="md-fab md-primary" ng-href="#!/newConsignment" aria-label="ShowHideAccountant">
             <md-icon md-svg-src="images/baseline-add-24px.svg"></md-icon>
         </md-button>
     </div>

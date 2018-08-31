@@ -157,14 +157,39 @@ angular.module('myApp.company', ['ngRoute'])
     };
     }])
 
-    .controller('myShipmentsCtrl', ['$scope', '$rootScope', function($scope, $rootScope){
+    .controller('myShipmentsCtrl', ['$scope', '$rootScope', '$filter', function($scope, $rootScope, $filter){
 
 
         $scope.getShipments = JSON.parse(window.localStorage.getItem('shipments'));
 
+        $rootScope.shipmentMoreID;
+
+        $scope.clickMore = function (index) {
+            $rootScope.shipmentMoreID = index;
+        };
+
+        $scope.getShipmentConsignments = function(){
+
+            if($rootScope.shipmentMoreID !== null){
+                return $filter('filter')(JSON.parse(window.localStorage.getItem('shipments')), {'id':$rootScope.shipmentMoreID});
+            }
+
+        };
+
+        $scope.temptemp =$filter('filter')(JSON.parse(window.localStorage.getItem('shipments')), {'id':$rootScope.shipmentMoreID});
+
+        $scope.getShipments = JSON.parse(window.localStorage.getItem('shipments'));
+
+        $scope.showNoShipmentMessage = function(){
+            if($scope.getShipments === null || $scope.getShipments === undefined || $scope.getShipments.length === 0){
+                return true;
+            }
+
+            return false;
+        };
     }])
 
-    .controller('newConsignmentCtrl', ['$scope', '$mdToast', '$mdDialog', '$location', function($scope, $mdToast, $mdDialog, $location) {
+    .controller('newConsignmentCtrl', ['$scope', '$mdToast', '$mdDialog', '$location', '$rootScope', function($scope, $mdToast, $mdDialog, $location, $rootScope) {
 
         //the array of the products in the current (new) consignment
         $scope.products = [];
@@ -212,7 +237,7 @@ angular.module('myApp.company', ['ngRoute'])
 
         //myConsignments.html
         $scope.showNoConsignmentsMessage = function(){
-            if($scope.getConsignments.length === 0){
+            if($scope.getConsignments === null || $scope.getConsignments === undefined || $scope.getConsignments === 0){
                 return true;
             }
 
@@ -354,6 +379,19 @@ angular.module('myApp.company', ['ngRoute'])
         $scope.consignments.splice(index, 1);
     };
 
+
+    $scope.showNoConsignmentsMessage = function(){
+        if($scope.getConsignments === null){
+            return true;
+        }
+
+        if($scope.getConsignments.length === 0){
+            return true;
+        }
+
+        return false;
+    };
+
     $scope.finishShipmentToast = function() {
 
         $mdToast.show(
@@ -402,6 +440,8 @@ angular.module('myApp.company', ['ngRoute'])
 
     //different $scope variable than myConsignments
     $scope.getConsignments = JSON.parse(window.localStorage.getItem('newShipmentConsignments'));
+
+
 
     $scope.consignments = [];
 

@@ -1,83 +1,108 @@
 <link rel="stylesheet" href="views/company/css/company.css">
-<div class="container">
+<div class="container" ng-app="myApp.company" ng-controller="myShipmentsCtrl">
     <div><h1>Shipment history</h1></div>
 
-    <div layout="column">
-        <!--blockchain blocks -->
-        <div layout="column" layout-padding="" layout-wrap="" layout-margin="" ng-cloak="" layout-align="space-around" style="margin: auto">
+    <div layout="column" layout-padding="" layout-wrap="" layout-margin="" ng-cloak="" layout-align="space-around" style="margin: auto">
+        <div layout="column">
+            <!--blockchain blocks -->
+            <div layout="column" layout-padding="" layout-wrap="" layout-margin="" ng-cloak="" layout-align="space-around" style="margin: auto">
 
-            <div layout="column" layout-margin="" class="post" md-whiteframe="{{ctrl.elevation}}" style="padding-left: 20px;">
-                <div layout="row">
-                    <div flex="60">Company ALEI</div>
-                    <div flex="40">Custody time frame: 05.12.2016 - 23.02.2017</div>
-                </div>
-                <div layout="row">
-                    <div class="centreButton">
-                        <md-button class="md-raised" flex="" ng-href="#!/companyScans">Scans</md-button>
+                <div layout="column" layout-margin="" class="post" md-whiteframe="{{ctrl.elevation}}" style="padding-left: 20px;">
+                    <div layout="row">
+                        <div flex="60">Company ALEI</div>
+                        <div flex="40">Custody time frame: 05.12.2016 - 23.02.2017</div>
                     </div>
-                    <div class="centreButton">
-                        <md-button class="md-raised" ng-href="#!/employeesInvolved">Employees involved</md-button>
-                    </div>
-                    <div class="centreButton">
-                        <md-button class="md-raised" style="background-color: grey">Primary location: Fareham</md-button>
+                    <div layout="row">
+                        <div class="centreButton">
+                            <md-button class="md-raised" ng-href="#!/companyScans">Scans</md-button>
+                        </div>
+                        <div class="centreButton">
+                            <md-button class="md-raised" ng-href="#!/employeesInvolved">Employees involved</md-button>
+                        </div>
+                        <div class="centreButton">
+                            <md-button class="md-raised" style="background-color: grey">Primary location: Fareham</md-button>
+                        </div>
                     </div>
                 </div>
             </div>
 
-
-        </div>
-
-        <!--consignments within the shipment -->
-        <div layout="column" layout-padding="" layout-wrap="" layout-margin="" ng-cloak="" layout-align="space-around" style="margin: auto">
-
-
-            <!-- these are proper consignments -->
-            <div layout="column" class="post" md-whiteframe="{{ctrl.elevation}}" style="padding-left: 20px;">
-                <div style="text-align: center; vertical-align: middle;">
-                    <h2><b>Consignment</b> number 4CE0460D0G</h2>
-                </div>
-
-                <div layout="row">
-                    <div flex="50">
-                        <h3>ISO 8000-115</h3>
+            <!--consignments within the shipment -->
+            <div ng-repeat="consignment in temptemp[0].consignments track by $index" style="margin-bottom: 20px">
+                <div layout="column" class="post" md-whiteframe="{{ctrl.elevation}}" style="padding-left: 20px; margin:auto;">
+                    <div style="text-align: center; vertical-align: middle;">
+                        <h2><b>Consignment ID {{$index+10000000}}</b></h2> <!-- {{consignment.products}} -->
                     </div>
-                    <div flex="25" style="text-align: center;">
-                        <h3>Number of items</h3>
-                    </div>
-                    <div flex="25" style="text-align: center;">
-                        <h3>Serial numbers</h3>
-                    </div>
-                </div>
 
-                <div layout="column">
                     <div flex="100" layout="row">
-                        <div flex="50" class="cell">
-                            LOVEJOY:SPIDEX-ALU-A19-12H7
+                        <div flex="5" class="cell">
+                            <h3>#</h3>
                         </div>
-                        <div flex="25"  class="cell" style="text-align: center;">
-                            17
+                        <div flex="35">
+                            <h3>ISO 8000-115 identifier</h3>
                         </div>
-                        <div flex="25" class="centreButton">
-                            <md-button class="md-raised" style="background-color: grey">Serial numbers</md-button>
+                        <div flex="15" style="text-align: center;">
+                            <h3>Quantity</h3>
+                        </div>
+                        <div flex="15" style="text-align: center;">
+                            <h3>Batch no.</h3>
+                        </div>
+                        <div flex="30" style="text-align: center;">
+                            <h3>Serial numbers</h3>
                         </div>
                     </div>
-                </div>
+                    <!-- Consignments from the consignment array -->
+                    <div layout="column" ng-repeat="product in consignment.products track by $index">
+                        <div flex="100"layout="row">
+                            <div flex="5" class="cell">
+                                {{$index + 1}}
+                            </div>
+                            <div flex="35" class="cell" >
+                                {{product.iso8000Identifier}}
+                            </div>
+                            <div flex="15"  class="cell" style="text-align: center;">
+                                {{product.NoI}}
+                            </div>
+                            <div flex="15"  class="cell" style="text-align: center;">
+                                {{product.batchNumber}}
+                            </div>
+                            <div flex="30" class="centreButton">
+                                <md-button class="md-primary md-raised" ng-click="product.showSerialNumbers = !product.showSerialNumbers"> <!-- ng-click="showHideSerialNumbers()" -->
+                                    {{product.showSerialNumbers ? 'Close' : 'View'}} S/N
+                                </md-button>
+                            </div>
+                        </div>
+                        <div ng-show = product.showSerialNumbers layout="column">
+                            <div ng-repeat= "serialNumber in product.serialNumbers track by $index" style="margin-left: 10%; width:70%; padding: 0px 0; margin-bottom: 0px;">
+                                #{{$index + 1}}:  {{serialNumber}}
+                            </div>
+                        </div>
 
-                <div layout="row" style="display: flex;padding-top: 20px; float: left;">
-                    <div flex="100" layout="row" style="float: left">
-                        <div class="centreButton">
-                            <md-button class="md-raised" ng-href="#!/consignmentScans">Scans</md-button>
-                        </div>
-                        <div class="centreButton">
-                            <md-button class="md-raised" ng-href="#!/map">Visualise the route</md-button>
-                        </div>
-                        <div class="centreButton">
-                            <md-button class="md-raised" style="background-color: grey">Companies involved</md-button>
+                        <!--<div ng-show = product.showSerialNumbers layout="column">
+                            <div ng-repeat= "serialNumber in product.serialNumbers" style="margin-left: 10%; width:70%; padding: 0px 0; margin-bottom: 0px;">
+                                {{serialNumber}}
+                            </div>
+                        </div>-->
+                    </div>
+
+                    <div layout="row" style="display: flex;padding-top: 20px; float: left;">
+                        <div flex="80" layout="row" style="float: left">
+                            <div class="centreButton">
+                                <a download="qr.svg" href="images/qr.svg">
+                                    <md-button class="md-raised">Generate QR code</md-button>
+                                </a>
+                            </div>
+                            <div class="centreButton">
+                                <div class="centreButton">
+                                    <md-button class="md-raised" style="background-color: grey">History</md-button>
+                                </div>
+                            </div>
+                            <div class="centreButton">
+                                <md-button class="md-raised" ng-href="#!/companyScans">Scans</md-button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </div>
